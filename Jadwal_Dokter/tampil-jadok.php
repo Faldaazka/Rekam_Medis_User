@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(empty($_SESSION['username']) or empty ($_SESSION['level'])) {
+  "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
+location='auth/login.php'</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,7 +29,7 @@
     </tr>
 
     <?php
-    include "database/koneksi.php";
+    include "../database/koneksi.php";
 
     $no=1;
     $ambildata = mysqli_query($connect,"SELECT * FROM jadok");
@@ -41,7 +50,7 @@
     </table>
 
     <?php
-    include "database/koneksi.php";
+    include "../database/koneksi.php";
 
     if(isset($_GET['kode1'])){
     mysqli_query($connect, "DELETE FROM jadok WHERE id_dokter='$_GET[kode1]'");

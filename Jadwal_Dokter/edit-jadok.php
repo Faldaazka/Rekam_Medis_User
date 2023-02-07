@@ -1,5 +1,5 @@
 <?php
-include "database/koneksi.php";
+include "../database/koneksi.php";
 $sql=mysqli_query($connect, "SELECT * FROM jadok WHERE id_dokter='$_GET[kode1]'");
 $data=mysqli_fetch_array($sql);
 
@@ -22,7 +22,7 @@ $data=mysqli_fetch_array($sql);
 </form>
 
 <?php
-include "database/koneksi.php";
+include "../database/koneksi.php";
 
 if(isset($_POST['proses'])){
 mysqli_query($connect, "UPDATE jadok SET  

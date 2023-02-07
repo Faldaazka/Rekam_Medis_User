@@ -60,7 +60,7 @@ tgl_daftar      = '$_POST[tgl_daftar]'
 where id_pasien = '$_GET[kode]'");
 
 echo "Data pasien telah diubah";
-echo "<meta http-equiv=refresh content=1;URL='tampil-pasien.php'>";
+echo "<meta http-equiv=refresh content=1;URL='tampil-pasien_.php'>";
 
 }
 

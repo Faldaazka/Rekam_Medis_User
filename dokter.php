@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (empty($_SESSION['username']) or empty($_SESSION['level'])) {
+  echo "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
+location='../auth/login.php'</script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,6 +49,9 @@
         <i class="bi bi-envelope"></i> <a href="mailto:klinikallia@gmail.com">klinikallia@gmail.com</a>
         <i class="bi bi-phone"></i> +62 7535729
       </div>
+        <div class="pull-right">
+        <a>Selamat Datang, <mark color="yellow"><strong> Dokter &nbsp; <?= $_SESSION['nama_user'] ?></strong></mark> di Halaman Pendaftaran</a>
+      </div>
     </div>
   </div>
 
@@ -56,7 +67,11 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
           <li><a class="nav-link scrollto" href="#antrian">Antrian</a></li>
-          <li><a class="nav-link scrollto" href="#jadok">Jadwal Dokter</a></li>
+          <li class="dropdown"><a href="#"><span>Jadwal</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <li><a class="nav-link scrollto" href="">Dokter</a></li>
+            <li><a class="nav-link scrollto" href="">Janji</a></li>
+            </ul>
           <li class="dropdown"><a href="#"><span>Rekam Medis</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <li><a class="nav-link scrollto" href="#medis">Data Rekam Medis</a></li>
@@ -68,15 +83,17 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Appointment</span></a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="auth/logout.php" class="btn btn-danger"><span class="d-none d-md-inline">Logout</span></a>
     </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1>KLINIK ALLIA</h1>
-      <h2>Klinik Rawat Jalan</h2>
+      <h1>Rekam Medis</h1>
+      <h2>Website Rekam Medis Klinik Allia</h2>
     </div>
   </section><!-- End Hero -->
 
@@ -94,60 +111,13 @@
         </div><!-- End .content-->
       </section><!-- End Why Us Section -->
 
-    <!-- ======= Tentang Section ======= -->
-    <!-- End Tentang Section -->
-
-    <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="fas fa-user-md"></i>
-              <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Dokter</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-            <div class="count-box">
-              <i class="far fa-hospital"></i>
-              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Departement</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="fas fa-flask"></i>
-              <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Layanan Lab</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="fas fa-award"></i>
-              <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Awards</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    <!-- End Counts Section -->
-  
     <!-- ======= Appointment Section ======= -->
     <section id="appointment" class="appointment section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2>Make an Appointment</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Janji Dokter</h2>
+          <p></p>
         </div>
 
         <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
@@ -199,7 +169,7 @@
             <div class="error-message"></div>
             <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
           </div>
-          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+          <div class="text-center"><button type="submit">Buat Janji</button></div>
         </form>
 
       </div>
@@ -277,134 +247,52 @@
     </section>
     <!-- End Departemen Section -->
 
-    <!-- ======= Doctors Section ======= -->
-    <section id="dokter" class="dokter">
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
       <div class="container">
-
-        <div class="section-title">
-          <h2>Doctors</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
 
         <div class="row">
 
-          <div class="col-lg-6">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Medical Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="fas fa-user-md"></i>
+              <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Dokter</p>
             </div>
           </div>
 
-          <div class="col-lg-6 mt-4 mt-lg-0">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Anesthesiologist</span>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="far fa-hospital"></i>
+              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Departement</p>
             </div>
           </div>
 
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>Cardiology</span>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="fas fa-flask"></i>
+              <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Layanan Lab</p>
             </div>
           </div>
 
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Neurosurgeon</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="fas fa-award"></i>
+              <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Awards</p>
             </div>
           </div>
+
         </div>
+
       </div>
+    </section>
+    <!-- End Counts Section -->
 
-
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-
-    </section><!-- End Doctors Section -->
-
-    <!-- ======= Jadwal Doctors Section ======= -->
-    <section id="jadok" class="jadok">
-          <div class="container">
-            <table border="1" align="center" width="100%">
-        
-        <div class="section-title">
-          <h2>Jadwal Dokter</h2>
-          <p></p>
-        </div>
+    <!-- ======= Doctors Section ======= -->
     
-        <div>
-            <table border="1" align="center" width="100%">
-    
-                <tr bgcolor="grey">
-                    <th>Hari</th>
-                    <th>Nama Dokter</th>
-                    <th>Shift</th>
-                    <th>Departemen</th>
-                    <th>Keterangan</th>
-                    <th colspan="2">Aksi</th>
-                </tr>
-
-            <?php
-            include "database/koneksi.php";
-
-            $ambildata = mysqli_query($connect,"select * from jadwal_dokter");
-            while($tampil = mysqli_fetch_array($ambildata)){
-                echo "
-                <tr>
-                    <td>$tampil[dokter_hari]</td>
-                    <td>$tampil[dokter_nama]</td>
-                    <td>$tampil[waktu_shift]</td>
-                    <td>$tampil[departemen]</td>
-                    <td>$tampil[dokter_keterangan]</td>
-                </tr>";
-            }
-            ?>
-            </table>
-        </div>
-        </section>
     <!-- End Jadwal Doctors Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
@@ -421,7 +309,25 @@
    <!-- End Gallery Section -->
 
     <!-- ======= Alamat Section ======= -->
-    <!-- End Alamat Section -->
+    <section id="alamat" class="Alamat">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Alamat</h2>
+          <p></p>
+        </div>
+      </div>
+
+      <div>
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.1600291207255!2d106.77017731378693!3d-6.373331164114984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eee381987cdf%3A0x255d85713eeb4a10!2sKlinik%20Allia!5e0!3m2!1sid!2sid!4v1672076583754!5m2!1sid!2sid" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- Alamat Section -->
 
   </main><!-- End #main -->
 

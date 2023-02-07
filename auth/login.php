@@ -1,5 +1,5 @@
 <?php
-require_once "../_config/config.php";
+include "../_config/config.php";
 ?>
 
 <!doctype html>
@@ -40,7 +40,6 @@ require_once "../_config/config.php";
   <body>
     <form class="form-signin" method="POST" action="cek_login.php">
   <div class="text-center mb-4">
-    <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> <!----taruh Logo Klinik ALLIA-->
     <h1 class="h3 mb-3 font-weight-normal">Form Login</h1>
     <p>Masukkan Username dan Password Anda Dengan Benar!</p>
   </div>

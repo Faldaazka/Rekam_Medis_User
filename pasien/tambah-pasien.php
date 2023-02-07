@@ -64,7 +64,7 @@ alamat          = '$_POST[alamat]',
 tgl_daftar      = '$_POST[tgl_daftar]'");
 
 echo "Data pasien baru telah tersimpan";
-echo "<meta http-equiv=refresh content=1;URL='tampil-pasien.php'>";
+echo "<meta http-equiv=refresh content=1;URL='tampil-pasien_.php'>";
 
 }
 
