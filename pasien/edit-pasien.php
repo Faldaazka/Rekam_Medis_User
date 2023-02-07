@@ -1,5 +1,5 @@
 <?php
-include "database/koneksi.php";
+include "../database/koneksi.php";
 $sql=mysqli_query($connect, "SELECT * FROM pasien WHERE id_pasien='$_GET[kode]'");
 $data=mysqli_fetch_array($sql);
 
@@ -47,7 +47,7 @@ $data=mysqli_fetch_array($sql);
 </form>
 
 <?php
-include "database/koneksi.php";
+include "../database/koneksi.php";
 
 if(isset($_POST['proses'])){
 mysqli_query($connect, "UPDATE pasien SET  

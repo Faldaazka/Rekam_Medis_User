@@ -51,7 +51,7 @@
 </form>
 
 <?php
-include "database/koneksi.php";
+include "../database/koneksi.php";
 
 if(isset($_POST['proses'])){
 mysqli_query($connect, "INSERT INTO pasien SET

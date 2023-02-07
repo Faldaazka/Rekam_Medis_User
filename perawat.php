@@ -67,8 +67,8 @@ location='../auth/login.php'</script>";
           <li><a class="nav-link scrollto" href="#departemen">Departemen</a></li>
           <li class="dropdown"><a href="#"><span>Dokter</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="#dokter">Dokter</a></li>
-            <li><a class="nav-link scrollto" href="#jadok">Jadwal Dokter</a></li>
+            <li><a class="nav-link scrollto" href="dokter.php">Dokter</a></li>
+            <li><a class="nav-link scrollto" href="tmpil-jadok.php">Jadwal Dokter</a></li>
             </ul>
           <li><a class="nav-link scrollto" href="pasien/tampil-pasien_.php">Pasien</a></li>
           <li><a class="nav-link scrollto" href="#antrian">Antrian</a></li>
