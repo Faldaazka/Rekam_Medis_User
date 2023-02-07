@@ -50,7 +50,7 @@
         </thead>
         <tbody>
         <?php
-        include "database/koneksi.php";
+        include "../database/koneksi.php";
         $no=1;
         $ambildata = mysqli_query($connect,"select * from pasien");
         while($row = mysqli_fetch_array($ambildata)){

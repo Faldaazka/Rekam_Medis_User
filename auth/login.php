@@ -1,92 +1,75 @@
-
 <?php
 require_once "../_config/config.php";
-if(isset($_SESSION['user'])) {
-	echo "<script>window.location='".base_url()."';</script>";
-}else
-{
 ?>
 
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Login Klinik Allia</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Halaman Login</title>
 
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/floating-labels/">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link href="<?=base_url('assets/css/login.css');?>" rel="stylesheet">
-	
-	<body>
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-7 col-lg-5">
-					<div class="login-wrap p-4 p-md-5">
-		      	<div class="d-flex">
-		      		<div class="w-100"><h3 class="mb-4">Log In</h3></div>		
-		      	</div>
+    <!-- Bootstrap core CSS -->
+    
+<link href="<?=base_url('assets/dist/css/bootstrap.min.css');?>" rel="stylesheet">
 
-					<?php
-					if(isset($_POST['login'])) {
-						$user = trim(mysqli_real_escape_string($con, $_POST['user']));
-						$pass = sha1(trim(mysqli_real_escape_string($con, $_POST['pass'])));
-						$sql_login = mysqli_query($con, "SELECT * FROM tb_user WHERE username = '$user' AND password = '$pass'") or die (mysqli_error($con));
-						if(mysqli_num_rows($sql_login) > 0){
-							$_SESSION['user'] = $user;
-							echo "<script>window.location='".base_url()."';</script>";
-						} else { ?>
-							<div class="row">
-								<div class="col-lg-6 col-lg-offset-3">
-									<div class="alert alert-danger alert-dismissable" role="alert">
-										<a href="" class="close" data-dissmiss="alert" aria-label="close">&times;</a>
-										<span class="glyphicon glphicon-exclamation-sign" asria-hidden="true"></span>
-										<strong>Login gagal!</strong> Username / password salah
-									</div>	
-								</div>
-						</div>
-						<?php
-						}
-					}
-					?>	
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-						<form action="" method="post" class="navbar-form">
-		      		<div class="form-group">
-		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input type="text" name="user" class="form-control rounded-left" placeholder="Username" required>
-		      		</div>
-	            <div class="form-group">
-	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-	              <input type="password" name="pass" class="form-control rounded-left" placeholder="Password" required>
-	            </div>
-	            <div class="form-group d-flex align-items-center">
-	            	<div class="w-100">
-	            		<label class="checkbox-wrap checkbox-primary mb-0">Save Password
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-									</label>
-								</div>
-								<div class="w-100 d-flex justify-content-end">
-		            	<button type="submit" name="login" class="btn btn-primary rounded submit">Login</button>
-	            	</div>
-	            </div>
-	            
-	            </div>
-	          </form>
-	        </div>
-				</div>
-			</div>
-		</div>
-	</section>
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    
+    <link href="<?=base_url('assets/dist/css/floating-labels.css');?>" rel="stylesheet">
+  </head>
+  <body>
+    <form class="form-signin" method="POST" action="cek_login.php">
+  <div class="text-center mb-4">
+    <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> <!----taruh Logo Klinik ALLIA-->
+    <h1 class="h3 mb-3 font-weight-normal">Form Login</h1>
+    <p>Masukkan Username dan Password Anda Dengan Benar!</p>
+  </div>
 
-	<script src="<?=base_url('_assets/js/jquery.min.js')?>"></script>
-	<script src="<?=base_url('_assets/js/bootstrap.min.js')?>"></script>
+  <div class="form-label-group">
+    <input type="text" class="form-control" name="username" placeholder="Masukkan Username Anda!" required autofocus>
+    <label>Masukkan Username Anda!</label>
+  </div>
 
-	</body>
+  <div class="form-label-group">
+    <input type="password" class="form-control" name="password" placeholder="Masukkan Password Anda!" required>
+    <label>Masukkan Username Anda!</label>
+  </div>
+
+  <div class="form-label-group">
+    <select class="form-control" name="level">
+    <option value="Perawat">Perawat</option>
+    <option value="Dokter">Dokter</option>
+    <option value="Administrator">Administrator</option>
+    </select>
+  </div>
+
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <p class="mt-5 mb-3 text-muted text-center">&copy; 2023-<?= date('Y')?></p>
+</form>
+</body>
 </html>
-<?php
-}
-?>

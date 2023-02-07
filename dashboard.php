@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Medilab Bootstrap Template - Index</title>
+  <title>Dashboard Klinik Allia</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -53,10 +53,10 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">KLINIK ALLIA</a></h1>
+      <h1 class="logo me-auto"><a href="dashboard.html">KLINIK ALLIA</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+      
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
@@ -77,7 +77,7 @@
     <div class="container">
       <h1>KLINIK ALLIA</h1>
       <h2>Klinik Rawat Jalan</h2>
-      <a href="#about" class="btn-get-started scrollto">Log In</a> <!--GANTI BREH JADI LOGIN/SIGN UP-->
+      <a href="auth/login.php" class="btn btn-primary" role="button">Log In</a> <!--GANTI BREH JADI LOGIN/SIGN UP-->
     </div>
   </section><!-- End Hero -->
 
