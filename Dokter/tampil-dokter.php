@@ -2,7 +2,7 @@
 session_start();
 
 if(empty($_SESSION['username']) or empty ($_SESSION['level'])) {
-  "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
+  echo "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
 location='../auth/login.php'</script>";
 }
 ?>
@@ -23,7 +23,7 @@ location='../auth/login.php'</script>";
 </head>
    <body>
     <div class="container">
-    <h1 align="center"><strong>Daftar Pasien</strong></h1>
+    <h1 align="center"><strong>Daftar Dokter</strong></h1>
     <br/>
 
     <div class="container">
@@ -32,12 +32,11 @@ location='../auth/login.php'</script>";
                 &ensp;&ensp;  
                 <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
                 &ensp;
-                <a href="tambah-pasien.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Pasien</a>      
             </div>
         </h4>
         <div class="pull-left">
                 &ensp;&ensp;  
-                <a href="../perawat.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
+                <a href="../pendaftaran.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
         </div>
         <div class ="pull-right" style="margin-bottom: 20px;">
             <form class="form-inline" action="" method="post">
@@ -55,14 +54,13 @@ location='../auth/login.php'</script>";
         <thead class="">
         <tr>
             <th>No.</th>
-            <th >Id_Pasien</th>
-            <th >Nama Pasien</th>
+            <th >Id_Dokter</th>
+            <th >Nama Dokter</th>
             <th >Jenis Kelamin</th>
+            <th >Departemen</th>
             <th >Tanggal Lahir</th>
             <th >Telephone</th>
             <th >Alamat</th>
-            <th >Tgl Daftar</th>
-            <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
 
         </tr>
         </thead>
@@ -70,20 +68,18 @@ location='../auth/login.php'</script>";
         <?php
         include "../database/koneksi.php";
         $no=1;
-        $ambildata = mysqli_query($connect,"select * from pasien");
+        $ambildata = mysqli_query($connect,"select * from dokter");
         while($row = mysqli_fetch_array($ambildata)){
             echo "
             <tr>
                 <td>$no</td>
-                <td>$row[id_pasien]</td>
-                <td>$row[nama_pasien]</td>
-                <td>$row[jenis_kelamin]</td>
-                <td>$row[tgl_lahir]</td>
-                <td>$row[no_tlp_pasien]</td>
-                <td>$row[alamat]</td>
-                <td>$row[tgl_daftar]</td>
-                <td><a href='?kode=$row[id_pasien]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
-                <td><a href='edit-pasien.php?kode=$row[id_pasien]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
+                <td>$row[id_dokter]</td>
+                <td>$row[nama_dokter]</td>
+                <td>$row[jk_dokter]</td>
+                <td>$row[departemen]</td>
+                <td>$row[tgl_lahir_dokter]</td>
+                <td>$row[no_tlp_dokter]</td>
+                <td>$row[alamat_dokter]</td>
             <tr>";
             $no++;
         }

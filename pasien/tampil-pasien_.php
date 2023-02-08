@@ -2,7 +2,7 @@
 session_start();
 
 if(empty($_SESSION['username']) or empty ($_SESSION['level'])) {
-  "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
+  echo "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
 location='../auth/login.php'</script>";
 }
 ?>
@@ -37,7 +37,7 @@ location='../auth/login.php'</script>";
         </h4>
         <div class="pull-left">
                 &ensp;&ensp;  
-                <a href="../perawat.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
+                <a href="../pendaftaran.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
         </div>
         <div class ="pull-right" style="margin-bottom: 20px;">
             <form class="form-inline" action="" method="post">
@@ -91,15 +91,15 @@ location='../auth/login.php'</script>";
         </tbody>
         </table>
         <?php
-    include "../database/koneksi.php";
+        include "../database/koneksi.php";
 
-    if(isset($_GET['kode'])){
-    mysqli_query($connect, "DELETE FROM pasien WHERE id_pasien='$_GET[kode]'");
-    
-    echo "Data berhasil dihapus";
-    echo "<meta http-equiv=refresh content=2;URL='tampil-pasien_.php'>";
+        if(isset($_GET['kode'])){
+        mysqli_query($connect, "DELETE FROM pasien WHERE id_pasien='$_GET[kode]'");
+        
+        echo "Data berhasil dihapus";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-pasien_.php'>";
 
-    }
+        }
     ?>
 </div> 
 

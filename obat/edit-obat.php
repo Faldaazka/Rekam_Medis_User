@@ -1,8 +1,12 @@
+<?php
+include "../database/koneksi.php";
+$sql=mysqli_query($connect, "SELECT * FROM obat WHERE id_obat='$_GET[kode]'");
+$data=mysqli_fetch_array($sql);?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Tambah Pasien</title>
+    <title>Edit Obat</title>
 
     <!-- Latest compiled and minified CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -18,78 +22,44 @@
   </head>
   <body>
 
-  
 
 <div class="container">
-<h3><strong>Tambah Pasien</h3><br/>
+<h3><strong>Edit Obat</h3><br/>
 <form action="" method="post">
 <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Id Pasien</label>
+    <label class="col-sm-2 col-form-label">Id Obat</label>
     <div class="col-sm-10">
-        <input type="text" name="id_pasien" size="30">
+        <input type="text" name="id_obat" size="30" value="<?php echo $data['id_obat']; ?>">
     </div>
   </div>
   <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Nama Pasien</label>
+    <label class="col-sm-2 col-form-label">Nama Obat</label>
     <div class="col-sm-10">
-      <input type="text" name="nama_pasien" size="30">
+      <input type="text" name="nama_obat" size="30" value="<?php echo $data['nama_obat']; ?>">
     </div>
   </div>
   <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
+    <label class="col-sm-2 col-form-label">Stok Obat</label>
     <div class="col-sm-10">
-    <select name="jenis_kelamin">
-    <option selected>Pilih Salah Satu</option>
-    <option value="Laki-Laki">Laki-Laki</option>
-    <option value="Perempuan">Perempuan</option>
-    </select>
-    </td>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Tangal Lahir</label>
-    <div class="col-sm-10">
-      <input type="date" name="tgl_lahir" size="30">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Telephone</label>
-    <div class="col-sm-10">
-      <input type="text" name="no_tlp_pasien" size="30">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Alamat</label>
-    <div class="col-sm-10">
-        <input type="text" name="alamat" size="30">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Tanggal Daftar</label>
-    <div class="col-sm-10">
-        <input type="date" name="tgl_daftar" size="30">
+        <input type="text" name="stok_obat" size="30" value="<?php echo $data['stok_obat']; ?>">
     </div>
   </div>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   <input type="submit" class="btn btn-primary" name="proses"></input>
-  <a class="btn btn-danger" href="tampil-pasien_.php" role="button">Cancel</a>
+  <a class="btn btn-danger" href="tampil-obat.php" role="button">Cancel</a>
 </form>
 
 <?php
 include "../database/koneksi.php";
 
 if(isset($_POST['proses'])){
-mysqli_query($connect, "INSERT INTO pasien SET
-id_pasien       = '$_POST[id_pasien]',
-nama_pasien     = '$_POST[nama_pasien]',
-jenis_kelamin   = '$_POST[jenis_kelamin]',
-tgl_lahir       = '$_POST[tgl_lahir]',
-no_tlp_pasien   = '$_POST[no_tlp_pasien]',
-alamat          = '$_POST[alamat]',
-tgl_daftar      = '$_POST[tgl_daftar]'");
+mysqli_query($connect, "UPDATE obat SET  
+nama_obat       = '$_POST[nama_obat]',
+stok_obat       = '$_POST[stok_obat]'
+where id_obat   = '$_GET[kode]'");
 
-echo "Data pasien baru telah tersimpan";
-echo "<meta http-equiv=refresh content=1;URL='tampil-pasien_.php'>";
+echo "Data obat telah diubah";
+echo "<meta http-equiv=refresh content=1;URL='tampil-obat.php'>";
 
 }
 

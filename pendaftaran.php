@@ -36,7 +36,7 @@ location='../auth/login.php'</script>";
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../assets/css/administrasi.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/pendaftaran.css" rel="stylesheet" type="text/css">
   
   </head>
 
@@ -67,15 +67,15 @@ location='../auth/login.php'</script>";
           <li><a class="nav-link scrollto" href="#departemen">Departemen</a></li>
           <li class="dropdown"><a href="#"><span>Dokter</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="dokter.php">Dokter</a></li>
-            <li><a class="nav-link scrollto" href="tmpil-jadok.php">Jadwal Dokter</a></li>
+            <li><a class="nav-link scrollto" href="dokter/tampil-dokter.php">Dokter</a></li>
+            <li><a class="nav-link scrollto" href="dokter/tampil-jadok.php">Jadwal Dokter</a></li>
             </ul>
           <li><a class="nav-link scrollto" href="pasien/tampil-pasien_.php">Pasien</a></li>
-          <li><a class="nav-link scrollto" href="#antrian">Antrian</a></li>
+          <li><a class="nav-link scrollto" href="antrian/antrian.php">Antrian</a></li>
           <li class="dropdown"><a href="#"><span>Obat</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a class="nav-link scrollto" href="#obat">Resep Obat</a></li>
-              <li><a class="nav-link scrollto" href="#obat">Daftar Obat</a></li>
+              <li><a class="nav-link scrollto" href="obat/resep.php">Resep Obat</a></li>
+              <li><a class="nav-link scrollto" href="obat/tampil-obat.php">Daftar Obat</a></li>
             </ul>
           
         </ul>

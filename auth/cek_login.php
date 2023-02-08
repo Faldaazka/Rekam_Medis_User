@@ -26,7 +26,7 @@ if($password == $user_valid['password']) {
 
     //uji level user
     if($level == "Perawat") {
-        header('location:../perawat.php');
+        header('location:../pendaftaran.php');
     } elseif ($level == "Dokter") {
         header('location:../dokter.php');
     } elseif ($level == "Administrator") {

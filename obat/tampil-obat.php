@@ -2,7 +2,7 @@
 session_start();
 
 if(empty($_SESSION['username']) or empty ($_SESSION['level'])) {
-  "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
+  echo "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
 location='../auth/login.php'</script>";
 }
 ?>
@@ -23,7 +23,7 @@ location='../auth/login.php'</script>";
 </head>
    <body>
     <div class="container">
-    <h1 align="center"><strong>Jadwal Dokter</strong></h1>
+    <h1 align="center"><strong>Daftar Obat</strong></h1>
     <br/>
 
     <div class="container">
@@ -31,7 +31,8 @@ location='../auth/login.php'</script>";
         <div class="pull-right">
                 &ensp;&ensp;  
                 <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
-                &ensp;&ensp;    
+                &ensp;
+                <a href="tambah-obat.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Obat</a>      
             </div>
         </h4>
         <div class="pull-left">
@@ -54,39 +55,43 @@ location='../auth/login.php'</script>";
         <thead class="">
         <tr>
             <th>No.</th>
-            <th >Id_Dokter</th>
-            <th >Hari</th>
-            <th >Nama Dokter</th>
-            <th >Waktu Shift</th>
-            <th >Departemen</th>
-            <th >Keterangan</th>
-            <th ><i class="glyphicon glyphicon-cog"><i></th>
-
+            <th >Id_Obat</th>
+            <th >Nama Obat</th>
+            <th >Stock Obat</th>
+            <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
         </tr>
         </thead>
         <tbody>
         <?php
         include "../database/koneksi.php";
-
         $no=1;
-        $ambildata = mysqli_query($connect,"SELECT * FROM jadok");
-        while($tampil = mysqli_fetch_array($ambildata)){
+        $ambildata = mysqli_query($connect,"select * from obat");
+        while($row = mysqli_fetch_array($ambildata)){
             echo "
             <tr>
                 <td>$no</td>
-                <td>$tampil[id_dokter]</td>
-                <td>$tampil[dokter_hari]</td>
-                <td>$tampil[dokter_nama]</td>
-                <td>$tampil[waktu_shift]</td>
-                <td>$tampil[departemen]</td>
-                <td>$tampil[dokter_keterangan]</td>
-                <td><a href='edit-jadok.php?kode=$tampil[id_dokter]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
+                <td>$row[id_obat]</td>
+                <td>$row[nama_obat]</td>
+                <td>$row[stok_obat]</td>
+                <td><a href='?kode=$row[id_obat]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
+                <td><a href='edit-obat.php?kode=$row[id_obat]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";
             $no++;
         }
         ?>
         </tbody>
-        </table> 
+        </table>
+        <?php
+        include "../database/koneksi.php";
+
+        if(isset($_GET['kode'])){
+        mysqli_query($connect, "DELETE FROM obat WHERE id_obat='$_GET[kode]'");
+        
+        echo "Data berhasil dihapus";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-obat.php'>";
+
+        }
+    ?>
 </div> 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
