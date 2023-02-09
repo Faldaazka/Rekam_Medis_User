@@ -19,10 +19,7 @@
    <div class="col-lg-6 col-lg-offset-3">
 
    <form action="proses.php" method="post">
-   <div class="form-group">
-    <label for="id_jadok">Id Jadok</label>
-    <textarea name="id_jadok" id="id_jadok" class="form-control" required>
-    </textarea>
+   
 <div class="form-group">
     <label for="id_departemen">Nama Departemen</label>
     <select name="id_departemen" id="id_departemen" class="form-control" required>
