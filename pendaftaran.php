@@ -69,9 +69,14 @@ location='../auth/login.php'</script>";
             <ul>
             <li><a class="nav-link scrollto" href="dokter/tampil-dokter.php">Dokter</a></li>
             <li><a class="nav-link scrollto" href="dokter/tampil-jadok.php">Jadwal Dokter</a></li>
+            <li><a class="nav-link scrollto" href="janji/tampil-janji.php">Janji</a></li>
             </ul>
           <li><a class="nav-link scrollto" href="pasien/tampil-pasien_.php">Pasien</a></li>
-          <li><a class="nav-link scrollto" href="antrian/antrian.php">Antrian</a></li>
+          <li class="dropdown"><a href="#"><span>Pendaftaran</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <li><a class="nav-link scrollto" href="daftar/tampil-daftar.php">Periksa</a></li>
+            <li><a class="nav-link scrollto" href="daftar/antrian.php">Antrian</a></li>
+            </ul>
           <li class="dropdown"><a href="#"><span>Obat</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a class="nav-link scrollto" href="obat/resep.php">Resep Obat</a></li>
@@ -81,7 +86,6 @@ location='../auth/login.php'</script>";
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!--End navbar -->
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Appointment</span></a>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <a href="auth/logout.php" class="btn btn-danger"><span class="d-none d-md-inline">Logout</span></a>
     </div>
@@ -236,70 +240,8 @@ location='../auth/login.php'</script>";
     <!-- End Jadwal Doctors Section -->
 
      <!-- ======= Appointment Section ======= -->
-     <section id="appointment" class="appointment section-bg">
-        <div class="container">
-  
-          <div class="section-title">
-            <h2>Make an Appointment</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-          </div>
-  
-          <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="col-md-4 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-4 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-4 form-group mt-3 mt-md-0">
-                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                <div class="validate"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-4 form-group mt-3">
-                <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select name="department" id="department" class="form-select">
-                  <option value="">Select Department</option>
-                  <option value="Department 1">Department 1</option>
-                  <option value="Department 2">Department 2</option>
-                  <option value="Department 3">Department 3</option>
-                </select>
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-4 form-group mt-3">
-                <select name="doctor" id="doctor" class="form-select">
-                  <option value="">Select Doctor</option>
-                  <option value="Doctor 1">Doctor 1</option>
-                  <option value="Doctor 2">Doctor 2</option>
-                  <option value="Doctor 3">Doctor 3</option>
-                </select>
-                <div class="validate"></div>
-              </div>
-            </div>
-  
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-              <div class="validate"></div>
-            </div>
-            <div class="mb-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Make an Appointment</button></div>
-          </form>
-  
-        </div>
-      </section>
+    
       <!-- End Appointment Section -->
-  
 
     <!-- ======= Contact Section ======= -->
     <section id="alamat" class="Alamat">
