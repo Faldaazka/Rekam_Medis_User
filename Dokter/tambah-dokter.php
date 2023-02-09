@@ -14,16 +14,15 @@
 </head>
    <body>
    <div class="container">
-   <h3 align="center"><strong>Tambah Berobat Pasien</h3><br/>
+   <h3 align="center"><strong>Tambah Jadwal Pasien</h3><br/>
    <div class="row mb-3">
    <div class="col-lg-6 col-lg-offset-3">
 
    <form action="proses.php" method="post">
-  <div class="form-group">
-    <label for="id_periksa">Id Periksa</label>
-    <textarea name="id_periksa" id="id_periksa" class="form-control" required>
+   <div class="form-group">
+    <label for="id_jadok">Id Jadok</label>
+    <textarea name="id_jadok" id="id_jadok" class="form-control" required>
     </textarea>
-</div>
 <div class="form-group">
     <label for="id_departemen">Nama Departemen</label>
     <select name="id_departemen" id="id_departemen" class="form-control" required>
@@ -38,25 +37,44 @@
     </select>
 </div>
 <div class="form-group">
-    <label for="id_pasien">Nama Pasien</label>
-    <select name="id_pasien" id="id_pasien" class="form-control" required>
+    <label for="id_dokter">Nama Dokter</label>
+    <select name="id_dokter" id="id_dokter" class="form-control" required>
         <option value="">--Pilih Salah Satu--</option>
         <?php
         include "../database/koneksi.php";
-        $sql_pasien = mysqli_query($connect,"select * from pasien");
-        while($data_pasien = mysqli_fetch_array($sql_pasien)){
-            echo '<option value="'.$data_pasien['id_pasien'].'">'.$data_pasien['nama_pasien'].'</option>';
+        $sql_dokter = mysqli_query($connect,"select * from dokter");
+        while($data_dokter = mysqli_fetch_array($sql_dokter)){
+            echo '<option value="'.$data_dokter['id_dokter'].'">'.$data_dokter['nama_dokter'].'</option>';
         }
         ?>
     </select>
 </div>
 <div class="form-group">
-    <label for="tgl_periksa">Tgl Periksa</label>
-    <input type="date" name="tgl_periksa" id="tgl_periksa" value="<?=date('Y-m-d')?>" class="tgl_periksa" required>
+    <label for="dokter_hari">Hari</label>
+    <select name="dokter_hari" id="dokter_hari" class="form-control" required>
+        <option value="">--Pilih Salah Satu--</option>
+        <option value="Senin">Senin</option>
+        <option value="Selasa">Selasa</option>
+        <option value="Rabu">Rabu</option>
+        <option value="Kamis">Kamis</option>
+        <option value="Jumat">Jumat</option>
+        <option value="Sabtu">Sabtu</option>
+        <option value="Minggu">Minggu</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="waktu_shift">Waktu</label>
+    <input type="time" name="waktu_shift" id="waktu_shift" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="dokter_keterangan">Keterangan</label>
+    <textarea name="dokter_keterangan" id="dokter_keterangan" class="form-control" required>
+    </textarea>
 </div>
 <input type="submit" class="btn btn-primary" name="add"></input>
-<a href="tampil-periksa.php" type="button" class="btn btn-danger">Kembali</a>
+<a href="tampil-jadok.php" type="button" class="btn btn-danger">Kembali</a>
 </form>
+
 
 
 </div>

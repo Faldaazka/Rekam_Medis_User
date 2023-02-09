@@ -54,7 +54,6 @@ location='../auth/login.php'</script>";
         <thead class="">
         <tr>
             <th>No.</th>
-            <th >Id_Dokter</th>
             <th >Hari</th>
             <th >Nama Dokter</th>
             <th >Waktu Shift</th>
@@ -74,7 +73,6 @@ location='../auth/login.php'</script>";
             echo "
             <tr>
                 <td>$no</td>
-                <td>$tampil[id_dokter]</td>
                 <td>$tampil[dokter_hari]</td>
                 <td>$tampil[dokter_nama]</td>
                 <td>$tampil[waktu_shift]</td>

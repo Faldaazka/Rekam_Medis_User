@@ -74,7 +74,7 @@ location='../auth/login.php'</script>";
           <li><a class="nav-link scrollto" href="pasien/tampil-pasien_.php">Pasien</a></li>
           <li class="dropdown"><a href="#"><span>Pendaftaran</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="daftar/tampil-daftar.php">Periksa</a></li>
+            <li><a class="nav-link scrollto" href="periksa/tampil-periksa.php">Periksa</a></li>
             <li><a class="nav-link scrollto" href="daftar/antrian.php">Antrian</a></li>
             </ul>
           <li class="dropdown"><a href="#"><span>Obat</span> <i class="bi bi-chevron-down"></i></a>

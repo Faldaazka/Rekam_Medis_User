@@ -120,42 +120,59 @@ location='../auth/login.php'</script>";
           <p></p>
         </div>
 
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+        <form action="tambah-janji.php" method="post" role="form" class="php-email-form">
           <div class="row">
             <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <select name="id_pasien" id="id_pasien" class="form-control" required>
+        <option value="">--Pilih Nama Pasien--</option>
+        <?php
+        include "../database/koneksi.php";
+        $sql_pasien = mysqli_query($connect,"select * from pasien");
+        while($data_pasien = mysqli_fetch_array($sql_pasien)){
+            echo '<option value="'.$data_pasien['id_pasien'].'">'.$data_pasien['nama_pasien'].'</option>';
+        }
+        ?>
+    </select>
+          <div class="validate"></div>
+        </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Email Pasien" data-rule="email" data-msg="Please enter a valid email">
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="No Telephone Pasien" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 form-group mt-3">
-              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <input type="date" name="tanggal" class="form-control datepicker" id="tanggal" placeholder="Tanggal Janji" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select">
-                <option value="">Select Department</option>
-                <option value="Department 1">Department 1</option>
-                <option value="Department 2">Department 2</option>
-                <option value="Department 3">Department 3</option>
-              </select>
+            <select name="id_departemen" id="id_departemen" class="form-control" required>
+                <option value="">--Pilih Departemen--</option>
+                <?php
+                include "../database/koneksi.php";
+                $sql_departemen = mysqli_query($connect,"select * from departemen");
+                while($data_departemen = mysqli_fetch_array($sql_departemen)){
+                    echo '<option value="'.$data_departemen['id_departemen'].'">'.$data_departemen['nama_departemen'].'</option>';
+                }
+                ?>
+            </select>
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3">
-              <select name="doctor" id="doctor" class="form-select">
-                <option value="">Select Doctor</option>
-                <option value="Doctor 1">Doctor 1</option>
-                <option value="Doctor 2">Doctor 2</option>
-                <option value="Doctor 3">Doctor 3</option>
-              </select>
+            <select name="id_dokter" id="id_dokter" class="form-control" required>
+                <option value="">--Pilih Dokter--</option>
+                <?php
+                include "../database/koneksi.php";
+                $sql_dokter = mysqli_query($connect,"select * from dokter");
+                while($data_dokter = mysqli_fetch_array($sql_dokter)){
+                    echo '<option value="'.$data_dokter['id_dokter'].'">'.$data_departemen['nama_dokter'].'</option>';
+                }
+                ?>
+            </select>
               <div class="validate"></div>
             </div>
           </div>
