@@ -37,7 +37,7 @@
   </div>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   <input type="submit" class="btn btn-primary" name="proses"></input>
-  <a class="btn btn-danger" href="tampil-obat.php" role="button">Cancel</a>
+  <a class="btn btn-danger" href="tampil-obat-pend.php" role="button">Cancel</a>
 </form>
 </div>
 <?php
@@ -49,7 +49,7 @@ nama_obat     = '$_POST[nama_obat]',
 stok_obat     = '$_POST[stok_obat]'");
 
 echo "Data obat telah tersimpan";
-echo "<meta http-equiv=refresh content=1;URL='tampil-obat.php'>";
+echo "<meta http-equiv=refresh content=1;URL='tampil-obat-pend.php'>";
 
 }
 

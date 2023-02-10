@@ -81,7 +81,7 @@ location='../auth/login.php'</script>";
             <li><a class="nav-link scrollto" href="rekam_medis/tampil-rekdis.php">Data Rekam Medis</a></li>
             <li><a class="nav-link scrollto" href="">Data Resep Obat</a></li>
             </ul>
-          <li><a class="nav-link scrollto" href="#obat">Daftar Obat</a></li>
+          <li><a class="nav-link scrollto" href="obat/tampil-obat-dok.php">Daftar Obat</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

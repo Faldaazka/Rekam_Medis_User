@@ -77,10 +77,10 @@ location='../auth/login.php'</script>";
             <li><a class="nav-link scrollto" href="periksa/tampil-periksa-pend.php">Periksa</a></li>
             <li><a class="nav-link scrollto" href="daftar/antrian.php">Antrian</a></li>
             </ul>
-          <li class="dropdown"><a href="#"><span>Obat</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href=""><span>Obat</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a class="nav-link scrollto" href="obat/resep.php">Resep Obat</a></li>
-              <li><a class="nav-link scrollto" href="obat/tampil-obat_.php">Daftar Obat</a></li>
+              <li><a class="nav-link scrollto" href="obat/tampil-obat-dok.php">Daftar Obat</a></li>
             </ul>
           
         </ul>

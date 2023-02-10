@@ -32,7 +32,6 @@ location='../auth/login.php'</script>";
                 &ensp;&ensp;  
                 <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
                 &ensp;
-                <a href="tambah-obat.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Obat</a>      
             </div>
         </h4>
         <div class="pull-left">
@@ -58,7 +57,6 @@ location='../auth/login.php'</script>";
             <th >Id_Obat</th>
             <th >Nama Obat</th>
             <th >Stock Obat (dalam strip)</th>
-            <th><i class="glyphicon glyphicon-cog"><i></th>
         </tr>
         </thead>
         <tbody>
@@ -73,24 +71,13 @@ location='../auth/login.php'</script>";
                 <td>$row[id_obat]</td>
                 <td>$row[nama_obat]</td>
                 <td>$row[stok_obat]</td>
-                <td><a href='edit-obat.php?kode=$row[id_obat]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";
             $no++;
         }
         ?>
         </tbody>
         </table>
-        <?php
-        include "../database/koneksi.php";
-
-        if(isset($_GET['kode'])){
-        mysqli_query($connect, "DELETE FROM obat WHERE id_obat='$_GET[kode]'");
-        
-        echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='tampil-obat.php'>";
-
-        }
-    ?>
+    
 </div> 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
