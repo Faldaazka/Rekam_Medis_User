@@ -69,21 +69,18 @@ location='../auth/login.php'</script>";
           <li><a class="nav-link scrollto" href="#antrian">Antrian</a></li>
           <li class="dropdown"><a href="#"><span>Jadwal</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="jadok/tampil-jadok.php">Jadwal Dokter</a></li>
+            <li><a class="nav-link scrollto" href="jadok/tampil-jadok_.php">Jadwal Dokter</a></li>
             <li><a class="nav-link scrollto" href="janji/tampil-janji.php">Janji</a></li>
             </ul>
           <li class="dropdown"><a href="#"><span>Rekam Medis</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="#medis">Data Rekam Medis</a></li>
-            <li><a class="nav-link scrollto" href="#resep">Data Resep Obat</a></li>
-            <li><a class="nav-link scrollto" href="#rujukan">Rujukan</a></li>
-            <li><a class="nav-link scrollto" href="#medis">Surat Keterangan Sakit</a></li>
+            <li><a class="nav-link scrollto" href="rekam_medis/tampil-rekdis.php">Data Rekam Medis</a></li>
+            <li><a class="nav-link scrollto" href="">Data Resep Obat</a></li>
             </ul>
           <li><a class="nav-link scrollto" href="#obat">Daftar Obat</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-      <a href="janji/tambah-janji.php" class="appointment-btn scrollto"><span class="d-none d-md-inline">Appointment</span></a>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <a href="auth/logout.php" class="btn btn-danger"><span class="d-none d-md-inline">Logout</span></a>
     </div>

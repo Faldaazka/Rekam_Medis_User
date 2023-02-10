@@ -14,7 +14,7 @@
 </head>
    <body>
    <div class="container">
-   <h3 align="center"><strong>Tambah Jadwal Pasien</h3><br/>
+   <h3 align="center"><strong>Tambah Jadwal Dokter</h3><br/>
    <div class="row mb-3">
    <div class="col-lg-6 col-lg-offset-3">
 
