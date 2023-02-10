@@ -80,7 +80,7 @@ location='../auth/login.php'</script>";
                 <td>$row[waktu_shift]</td>
                 <td>$row[nama_departemen]</td>
                 <td>$row[dokter_keterangan]</td>
-                <td><a href='edit-jadok_.php?kode=$row[id_jadok]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
+                <td><a href='edit-jadok-pend.php?kode=$row[id_jadok]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";
             $no++;
         }

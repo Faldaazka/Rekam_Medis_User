@@ -35,7 +35,8 @@ $data=mysqli_fetch_array($sql);?>
   <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
     <div class="col-sm-10">
-    <select name="jk_dokter" value="<?php echo $data['jenis_kelamin']; ?>">
+    <select name="jk_dokter" id="dokter_hari" class="form-control">
+    <option value="">--Pilih Salah Satu</option>
     <option value="Laki-Laki">Laki-Laki</option>
     <option value="Perempuan">Perempuan</option>
     </select>
@@ -90,7 +91,7 @@ jk_dokter           = '$_POST[jk_dokter]',
 id_departemen       = '$_POST[id_departemen]',
 tgl_lahir_dokter    = '$_POST[tgl_lahir_dokter]',
 no_tlp_dokter       = '$_POST[no_tlp_dokter]',
-alamat_dokter             = '$_POST[alamat_dokter]'
+alamat_dokter       = '$_POST[alamat_dokter]'
 where id_dokter     = '$_GET[kode]'");
 
 echo "Data pasien telah diubah";

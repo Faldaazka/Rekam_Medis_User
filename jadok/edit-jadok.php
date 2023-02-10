@@ -26,40 +26,7 @@ $data=mysqli_fetch_array($sql);?>
 <div class="container">
 <h3><strong>Edit Jadwal Dokter</h3><br/>
 <form action="" method="post">
-<div class="form-group">
-    <label for="dokter_hari">Hari</label>
-    <select name="dokter_hari" id="dokter_hari" class="form-control">
-        <option value=><?php echo $data['dokter_hari']; ?></option>
-        <option value="Senin">Senin</option>
-        <option value="Selasa">Selasa</option>
-        <option value="Rabu">Rabu</option>
-        <option value="Kamis">Kamis</option>
-        <option value="Jumat">Jumat</option>
-        <option value="Sabtu">Sabtu</option>
-        <option value="Minggu">Minggu</option>
-    </select>
-</div>
-<div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Nama Dokter</label>
-    <div class="col-sm-10">
-    <select name="id_dokter" id="id_dokter" class="form-control">
-        <option value=""></option>
-        <?php
-        include "../database/koneksi.php";
-        $sql_dokter = mysqli_query($connect,"select * from dokter");
-        while($data_dokter = mysqli_fetch_array($sql_dokter)){
-            echo '<option value="'.$data_dokter['id_dokter'].'">'.$data_dokter['nama_dokter'].'</option>';
-        }
-        ?>
-    </select>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Waktu</label>
-    <div class="col-sm-10">
-      <input type="time" name="waktu_shift" size="30" value="<?php echo $data['waktu_shift']; ?>">
-    </div>
-  </div>
+  <!--Nama Departemen-->
   <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Nama Departemen</label>
     <div class="col-sm-10">
@@ -75,6 +42,47 @@ $data=mysqli_fetch_array($sql);?>
     </select>
     </div>
   </div>
+  <!--Nama Dokter-->
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Nama Dokter</label>
+    <div class="col-sm-10">
+    <select name="id_dokter" id="id_dokter" class="form-control">
+        <option value="">--Pilih Salah Satu--</option>
+        <?php
+        include "../database/koneksi.php";
+        $sql_dokter = mysqli_query($connect,"select * from dokter");
+        while($data_dokter = mysqli_fetch_array($sql_dokter)){
+            echo '<option value="'.$data_dokter['id_dokter'].'">'.$data_dokter['nama_dokter'].'</option>';
+        }
+        ?>
+    </select>
+    </div>
+  </div>
+   <!--Hari-->
+   <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Hari</label>
+    <div class="col-sm-10">
+    <select name="dokter_hari" id="dokter_hari" class="form-control">
+    <option value=""><?php echo $data['dokter_hari']; ?></option>
+    <option value="Senin">Senin</option>
+    <option value="Selasa">Selasa</option>
+    <option value="Rabu">Rabu</option>
+    <option value="Kamis">Kamis</option>
+    <option value="Jumat">Jumat</option>
+    <option value="Sabtu">Sabtu</option>
+    <option value="Minggu">Minggu</option>
+    </select>
+    </td>
+    </div>
+  </div>
+<!--Waktu Shift-->
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Waktu</label>
+    <div class="col-sm-10">
+      <input type="time" name="waktu_shift" size="30" value="<?php echo $data['waktu_shift']; ?>">
+    </div>
+  </div>
+  <!--Keterangan-->
   <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Keterangan</label>
     <div class="col-sm-10">
@@ -92,9 +100,9 @@ include "../database/koneksi.php";
 
 if(isset($_POST['proses'])){
 mysqli_query($connect, "UPDATE jadok SET 
-dokter_hari         = '$_POST[dokter_hari]',
-id_dokter           = '$_POST[id_dokter]', 
 id_departemen       = '$_POST[id_departemen]',
+id_dokter           = '$_POST[id_dokter]', 
+dokter_hari         = '$_POST[dokter_hari]',
 waktu_shift         = '$_POST[waktu_shift]',
 dokter_keterangan   = '$_POST[dokter_keterangan]'
 where id_jadok  = '$_GET[kode]'");

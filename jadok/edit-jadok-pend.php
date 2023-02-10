@@ -1,6 +1,6 @@
 <?php
 include "../database/koneksi.php";
-$sql=mysqli_query($connect, "SELECT * FROM jadok WHERE id_dokter='$_GET[kode]'");
+$sql=mysqli_query($connect, "SELECT * FROM jadok WHERE id_jadok='$_GET[kode]'");
 $data=mysqli_fetch_array($sql);
 
 ?>
@@ -25,19 +25,19 @@ $data=mysqli_fetch_array($sql);
   <body>
 
   <div class="container">
-    <h3 align="center"><strong>Edit Jadok</h3><br/>
+    <h3><strong>Edit Jadwal Dokter</h3><br/>
     <form action="" method="post">
-        <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Keterangan</label>
-            <div class="col-sm-10">
-                <input type="text" name="dokter_keterangan" size="30" value="<?php echo $data['dokter_keterangan']; ?>">
-            </div>
+    <!--Nama Departemen-->
+    <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Keterangan</label>
+        <div class="col-sm-10">
+        <input type="text" name="dokter_keterangan" size="30" value="<?php echo $data['dokter_keterangan']; ?>">
         </div>
-        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
-        <input type="submit" class="btn btn-primary" name="proses"></input>
-        <a class="btn btn-danger" href="tampil-jadok-pend.php" role="button">Cancel</a>
-
-    </form>
+    </div>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+  <input type="submit" class="btn btn-primary" name="proses"></input>
+  <a class="btn btn-danger" href="tampil-jadok-pend.php" role="button">Cancel</a>
+</form>
 
 <?php
 include "../database/koneksi.php";
@@ -45,10 +45,10 @@ include "../database/koneksi.php";
 if(isset($_POST['proses'])){
 mysqli_query($connect, "UPDATE jadok SET  
 dokter_keterangan     = '$_POST[dokter_keterangan]'
-where id_dokter       = '$_GET[kode]'");
+where id_jadok      = '$_GET[kode]'");
 
 echo "keterangan jadwal dokter telah diubah";
-echo "<meta http-equiv=refresh content=1;URL='tampil-jadok_.php'>";
+echo "<meta http-equiv=refresh content=1;URL='tampil-jadok-pend.php'>";
 
 }
 

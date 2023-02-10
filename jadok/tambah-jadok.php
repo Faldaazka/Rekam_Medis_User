@@ -19,20 +19,21 @@
    <div class="col-lg-6 col-lg-offset-3">
 
    <form action="proses.php" method="post">
-   
-<div class="form-group">
-    <label for="id_departemen">Nama Departemen</label>
-    <select name="id_departemen" id="id_departemen" class="form-control" required>
+    <!--Hari-->
+   <div class="form-group">
+    <label for="dokter_hari">Hari</label>
+    <select name="dokter_hari" id="dokter_hari" class="form-control" required>
         <option value="">--Pilih Salah Satu--</option>
-        <?php
-        include "../database/koneksi.php";
-        $sql_departemen = mysqli_query($connect,"select * from departemen");
-        while($data_departemen = mysqli_fetch_array($sql_departemen)){
-            echo '<option value="'.$data_departemen['id_departemen'].'">'.$data_departemen['nama_departemen'].'</option>';
-        }
-        ?>
+        <option value="Senin">Senin</option>
+        <option value="Selasa">Selasa</option>
+        <option value="Rabu">Rabu</option>
+        <option value="Kamis">Kamis</option>
+        <option value="Jumat">Jumat</option>
+        <option value="Sabtu">Sabtu</option>
+        <option value="Minggu">Minggu</option>
     </select>
 </div>
+<!--Nama Dokter-->
 <div class="form-group">
     <label for="id_dokter">Nama Dokter</label>
     <select name="id_dokter" id="id_dokter" class="form-control" required>
@@ -46,23 +47,26 @@
         ?>
     </select>
 </div>
+<!--Nama Departemen-->
 <div class="form-group">
-    <label for="dokter_hari">Hari</label>
-    <select name="dokter_hari" id="dokter_hari" class="form-control" required>
+    <label for="id_departemen">Nama Departemen</label>
+    <select name="id_departemen" id="id_departemen" class="form-control" required>
         <option value="">--Pilih Salah Satu--</option>
-        <option value="Senin">Senin</option>
-        <option value="Selasa">Selasa</option>
-        <option value="Rabu">Rabu</option>
-        <option value="Kamis">Kamis</option>
-        <option value="Jumat">Jumat</option>
-        <option value="Sabtu">Sabtu</option>
-        <option value="Minggu">Minggu</option>
+        <?php
+        include "../database/koneksi.php";
+        $sql_departemen = mysqli_query($connect,"select * from departemen");
+        while($data_departemen = mysqli_fetch_array($sql_departemen)){
+            echo '<option value="'.$data_departemen['id_departemen'].'">'.$data_departemen['nama_departemen'].'</option>';
+        }
+        ?>
     </select>
 </div>
+<!--Waktu Shift-->
 <div class="form-group">
     <label for="waktu_shift">Waktu</label>
     <input type="time" name="waktu_shift" id="waktu_shift" class="form-control" required>
 </div>
+<!--Keterangan-->
 <div class="form-group">
     <label for="dokter_keterangan">Keterangan</label>
     <textarea name="dokter_keterangan" id="dokter_keterangan" class="form-control" required>
