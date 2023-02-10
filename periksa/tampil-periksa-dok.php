@@ -23,7 +23,7 @@ location='../auth/login.php'</script>";
 </head>
    <body>
     <div class="container">
-    <h1 align="center"><strong>Jadwal Dokter</strong></h1>
+    <h1 align="center"><strong>Pendaftaran Pasien</strong></h1>
     <br/>
 
     <div class="container">
@@ -32,12 +32,12 @@ location='../auth/login.php'</script>";
                 &ensp;&ensp;  
                 <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
                 &ensp;
-                <a href="tambah-jadok.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Jadwal</a>      
+                
             </div>
         </h4>
         <div class="pull-left">
                 &ensp;&ensp;  
-                <a href="../admin.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
+                <a href="../dokter.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
         </div>
         <div class ="pull-right" style="margin-bottom: 20px;">
             <form class="form-inline" action="" method="post">
@@ -55,35 +55,27 @@ location='../auth/login.php'</script>";
         <thead class="">
         <tr>
             <th>No.</th>
-            <th >Hari</th>
-            <th >Nama Dokter</th>
-            <th >Waktu Shift</th>
-            <th >Departemen</th>
-            <th >Keterangan</th>
-            <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
-
+            <th >Nama Departemen</th>
+            <th >Nama Pasien</th>
+            <th >Tgl Periksa</th>
         </tr>
         </thead>
         <tbody>
         <?php
         include "../database/koneksi.php";
         $no=1;
-        $query = "SELECT * FROM jadok
-                    INNER JOIN dokter ON jadok.id_dokter = dokter.id_dokter
-                    INNER JOIN departemen ON jadok.id_departemen = departemen.id_departemen
-                    ";
-        $sql_janji = mysqli_query($connect, $query) or die (mysqli_error($connect));
-        while($row = mysqli_fetch_array($sql_janji)){
+        $query = "SELECT * FROM pendaftaran
+                    INNER JOIN departemen ON pendaftaran.id_departemen = departemen.id_departemen
+                    INNER JOIN pasien ON pendaftaran.id_pasien = pasien.id_pasien";
+
+        $sql_pendaftaran = mysqli_query($connect, $query) or die (mysqli_error($connect));
+        while($row = mysqli_fetch_array($sql_pendaftaran)){
             echo "
             <tr>
                 <td>$no</td>
-                <td>$row[dokter_hari]</td>
-                <td>$row[nama_dokter]</td>
-                <td>$row[waktu_shift]</td>
                 <td>$row[nama_departemen]</td>
-                <td>$row[dokter_keterangan]</td>
-                <td><a href='?kode=$row[id_jadok]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
-                <td><a href='edit-jadok.php?kode=$row[id_jadok]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
+                <td>$row[nama_pasien]</td>
+                <td>$row[tgl_periksa]</td>
             <tr>";
             $no++;
         }
@@ -94,10 +86,10 @@ location='../auth/login.php'</script>";
         include "../database/koneksi.php";
 
         if(isset($_GET['kode'])){
-        mysqli_query($connect, "DELETE FROM jadok WHERE id_jadok='$_GET[kode]'");
+        mysqli_query($connect, "DELETE FROM pendaftaran WHERE id_periksa='$_GET[kode]'");
         
         echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='tampil-jadok.php'>";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-periksa.php'>";
 
         }
     ?>

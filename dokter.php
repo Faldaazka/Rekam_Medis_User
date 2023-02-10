@@ -50,7 +50,7 @@ location='../auth/login.php'</script>";
         <i class="bi bi-phone"></i> +62 7535729
       </div>
         <div class="pull-right">
-        <a>Selamat Datang, <mark color="yellow"><strong> Dokter &nbsp; <?= $_SESSION['nama_user'] ?></strong></mark> di Halaman Pendaftaran</a>
+        <a>Selamat Datang, <mark color="yellow"><strong> Dokter &nbsp; <?= $_SESSION['nama_user'] ?></strong></mark> di Halaman Rekam Medis</a>
       </div>
     </div>
   </div>
@@ -66,10 +66,14 @@ location='../auth/login.php'</script>";
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="#antrian">Antrian</a></li>
-          <li class="dropdown"><a href="#"><span>Jadwal</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Pasien</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="jadok/tampil-jadok_.php">Jadwal Dokter</a></li>
+            <li><a class="nav-link scrollto" href="pasien/tampil-pasien_.php">Daftar Pasien</a></li>
+            <li><a class="nav-link scrollto" href="periksa/tampil-periksa_.php">Periksa</a></li>
+            </ul>
+          <li class="dropdown"><a href="#"><span>Dokter</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <li><a class="nav-link scrollto" href="jadok/tampil-jadok-dok.php">Jadwal Dokter</a></li>
             <li><a class="nav-link scrollto" href="janji/tampil-janji.php">Janji</a></li>
             </ul>
           <li class="dropdown"><a href="#"><span>Rekam Medis</span> <i class="bi bi-chevron-down"></i></a>

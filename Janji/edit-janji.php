@@ -97,7 +97,7 @@ mysqli_query($connect, "UPDATE janji SET
 id_pasien       = '$_POST[id_pasien]',
 waktu_janji     = '$_POST[waktu_janji]',
 no_tlp_pasien   = '$_POST[no_tlp_pasien]',
-id_departemen   = '$_POST[aid_departemen]',
+id_departemen   = '$_POST[id_departemen]',
 id_dokter       = '$_POST[id_dokter]'
 where id_janji  = '$_GET[kode]'");
 

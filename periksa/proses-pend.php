@@ -9,7 +9,7 @@ if(isset($_POST['add'])){
     mysqli_query($connect, "INSERT INTO pendaftaran (id_periksa, id_departemen, id_pasien, tgl_periksa) VALUES ('', '$id_departemen', '$id_pasien', '$tgl_periksa')") or die (mysqli_error($connect));
 
     echo "Data periksa telah tersimpan";
-    echo "<meta http-equiv=refresh content=1;URL='tampil-periksa.php'>";
+    echo "<meta http-equiv=refresh content=1;URL='tampil-periksa-pend.php'>";
 
 }
 ?>

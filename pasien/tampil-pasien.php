@@ -1,66 +1,112 @@
+<?php
+session_start();
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Daftar Pasien</title>
-  </head>
-  <body>
-<div class="col-md-10 p-5 pt-3">
-        <a href="tambah-pasien.php" class="btn btn-primary mb-4"><i class="bi bi-plus-square-fill me-2"></i>Tambah Data Pasien</a>
-        <a href="antrian.php" class="btn btn-primary mb-4"><i class="bi bi-plus-square-fill me-2"></i>Daftar Antrian</a>
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered">
-        
+if(empty($_SESSION['username']) or empty ($_SESSION['level'])) {
+  echo "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
+location='../auth/login.php'</script>";
+}
+?>
 
-<h3> DAFTAR PASIEN</h3>
+<!Doctype html>
+   <head>
+   <!-- Latest compiled and minified CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<table border="1">
-    <tr>
-    <th>No.</th>
-    <th >Id_Pasien</th>
-    <th >Nama Pasien</th>
-    <th >Jenis Kelamin</th>
-    <th >Tanggal Lahir</th>
-    <th >Telephone</th>
-    <th >Alamat</th>
-    <th >Tgl Daftar</th>
-    <th colspan="2">Aksi</th>
-    </tr>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <?php
-    include "database/koneksi.php";
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+   <body>
+    <div class="container">
+    <h1 align="center"><strong>Daftar Pasien</strong></h1>
+    <br/>
 
-    $no=1;
-    $ambildata = mysqli_query($connect,"select * from pasien");
-    while($tampil = mysqli_fetch_array($ambildata)){
-        echo "
+    <div class="container">
+        <h4>
+        <div class="pull-right">
+                &ensp;&ensp;  
+                &ensp;
+                <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
+                &ensp;
+                <a href="tambah-pasien.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Pasien</a>      
+            </div>
+        </h4>
+        <div class="pull-left">
+                &ensp;&ensp;  
+                <a href="../pendaftaran.php" type="button" class="btn btn-primary">Kembali</a>
+                <a href="../periksa/tambah-periksa.php" type="button" class="btn btn-warning"><span class="bi bi-arrow-bar-left"></span>Periksa</a>
+        </div>
+        <div class ="pull-right" style="margin-bottom: 20px;">
+            <form class="form-inline" action="" method="post">
+            <div class="form-group">
+                <input type="text" name="pencarian" class="form-control" placeholder="Pencarian">
+        </div>
+        <div class="form-group">
+                <button type="submit" class="button btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        </div>
+            </form>
+        </div>
+    </div>
+
+        <table class="table table table-striped table-hover table table-bordered">
+        <thead class="">
         <tr>
-            <td>$no</td>
-            <td>$tampil[id_pasien]</td>
-            <td>$tampil[nama_pasien]</td>
-            <td>$tampil[jenis_kelamin]</td>
-            <td>$tampil[tgl_lahir]</td>
-            <td>$tampil[no_tlp_pasien]</td>
-            <td>$tampil[alamat]</td>
-            <td>$tampil[tgl_daftar]</td>
-            <td><a href='?kode=$tampil[id_pasien]'> Hapus </a></td>
-            <td><a href='edit-pasien.php?kode=$tampil[id_pasien]'> Ubah </a></td>
-        <tr>";
-        $no++;
-    }
+            <th>No.</th>
+            <th >Id_Pasien</th>
+            <th >Nama Pasien</th>
+            <th >Jenis Kelamin</th>
+            <th >Tanggal Lahir</th>
+            <th >Telephone</th>
+            <th >Alamat</th>
+            <th >Tgl Daftar</th>
+            <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        include "../database/koneksi.php";
+        $no=1;
+        $ambildata = mysqli_query($connect,"select * from pasien");
+        while($row = mysqli_fetch_array($ambildata)){
+            echo "
+            <tr>
+                <td>$no</td>
+                <td>$row[id_pasien]</td>
+                <td>$row[nama_pasien]</td>
+                <td>$row[jenis_kelamin]</td>
+                <td>$row[tgl_lahir]</td>
+                <td>$row[no_tlp_pasien]</td>
+                <td>$row[alamat]</td>
+                <td>$row[tgl_daftar]</td>
+                <td><a href='?kode=$row[id_pasien]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
+                <td><a href='edit-pasien.php?kode=$row[id_pasien]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
+            <tr>";
+            $no++;
+        }
+        ?>
+        </tbody>
+        </table>
+        <?php
+        include "../database/koneksi.php";
+
+        if(isset($_GET['kode'])){
+        mysqli_query($connect, "DELETE FROM pasien WHERE id_pasien='$_GET[kode]'");
+        
+        echo "Data berhasil dihapus";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-pasien_.php'>";
+
+        }
     ?>
-    </table>
+</div> 
 
-    <?php
-    include "database/koneksi.php";
-
-    if(isset($_GET['kode'])){
-    mysqli_query($connect, "DELETE FROM pasien WHERE id_pasien='$_GET[kode]'");
-    
-    echo "Data berhasil dihapus";
-    echo "<meta http-equiv=refresh content=2;URL='tampil-pasien.php'>";
-
-    }
-    ?>
-    </body>
-<html>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

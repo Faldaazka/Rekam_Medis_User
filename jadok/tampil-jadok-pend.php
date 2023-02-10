@@ -30,14 +30,12 @@ location='../auth/login.php'</script>";
         <h4>
         <div class="pull-right">
                 &ensp;&ensp;  
-                <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
-                &ensp;
-                <a href="tambah-jadok.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Jadwal</a>      
+                <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>       
             </div>
         </h4>
         <div class="pull-left">
                 &ensp;&ensp;  
-                <a href="../admin.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
+                <a href="../pendaftaran.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
         </div>
         <div class ="pull-right" style="margin-bottom: 20px;">
             <form class="form-inline" action="" method="post">
@@ -60,7 +58,7 @@ location='../auth/login.php'</script>";
             <th >Waktu Shift</th>
             <th >Departemen</th>
             <th >Keterangan</th>
-            <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
+            <th><i class="glyphicon glyphicon-cog"><i></th>
 
         </tr>
         </thead>
@@ -82,8 +80,7 @@ location='../auth/login.php'</script>";
                 <td>$row[waktu_shift]</td>
                 <td>$row[nama_departemen]</td>
                 <td>$row[dokter_keterangan]</td>
-                <td><a href='?kode=$row[id_jadok]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
-                <td><a href='edit-jadok.php?kode=$row[id_jadok]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
+                <td><a href='edit-jadok_.php?kode=$row[id_jadok]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";
             $no++;
         }
@@ -97,7 +94,7 @@ location='../auth/login.php'</script>";
         mysqli_query($connect, "DELETE FROM jadok WHERE id_jadok='$_GET[kode]'");
         
         echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='tampil-jadok.php'>";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-jadok-pend.php'>";
 
         }
     ?>

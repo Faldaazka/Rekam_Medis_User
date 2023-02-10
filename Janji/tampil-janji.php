@@ -27,7 +27,7 @@ location='../auth/login.php'</script>";
     <br/>
 
     <div class="container">
-        <h4>
+    <h4>
         <div class="pull-right">
                 &ensp;&ensp;  
                 <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
@@ -61,7 +61,6 @@ location='../auth/login.php'</script>";
             <th >Tanggal Janji</th>
             <th >Departemen</th>
             <th >Nama Dokter</th>
-            <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
 
         </tr>
         </thead>
@@ -84,8 +83,6 @@ location='../auth/login.php'</script>";
                 <td>$row[tgl_janji]</td>
                 <td>$row[nama_departemen]</td>
                 <td>$row[nama_dokter]</td>
-                <td><a href='?kode=$row[id_janji]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
-                <td><a href='edit-janji.php?kode=$row[id_janji]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";
             $no++;
         }

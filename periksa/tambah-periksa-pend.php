@@ -1,14 +1,6 @@
-<?php
-include "../database/koneksi.php";
-$sql=mysqli_query($connect, "SELECT * FROM pendaftaran WHERE id_periksa='$_GET[kode]'");
-$data=mysqli_fetch_array($sql);?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Edit Data Periksa</title>
-
-    <!-- Latest compiled and minified CSS -->
+<!Doctype html>
+   <head>
+   <!-- Latest compiled and minified CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -19,17 +11,17 @@ $data=mysqli_fetch_array($sql);?>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </head>
-  <body>
+</head>
+   <body>
+   <div class="container">
+   <h3 align="center"><strong>Tambah Periksa Pasien</h3><br/>
+   <div class="row mb-3">
+   <div class="col-lg-6 col-lg-offset-3">
 
-
-<div class="container">
-<h3><strong>Edit Data Periksa</h3><br/>
-<form action="" method="post">
-<div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Nama Departemen</label>
-    <div class="col-sm-10">
-    <select name="id_departemen" id="id_departemen" class="form-control" required>
+   <form action="proses.php" method="post">
+<div class="form-group">
+    <label for="id_departemen">Nama Departemen</label>
+    <select name="id_departemen" id="id_departemen" class="form-control">
         <option value="">--Pilih Salah Satu--</option>
         <?php
         include "../database/koneksi.php";
@@ -39,12 +31,10 @@ $data=mysqli_fetch_array($sql);?>
         }
         ?>
     </select>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Nama Pasien</label>
-    <div class="col-sm-10">
-    <select name="id_pasien" id="id_pasien" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="id_pasien">Nama Pasien</label>
+    <select name="id_pasien" id="id_pasien" class="form-control">
         <option value="">--Pilih Salah Satu--</option>
         <?php
         include "../database/koneksi.php";
@@ -54,34 +44,18 @@ $data=mysqli_fetch_array($sql);?>
         }
         ?>
     </select>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Tanggal Periksa</label>
-    <div class="col-sm-10">
-        <input type="date" name="tgl_periksa" size="30" value="<?php echo $data['tgl_periksa']; ?>">
-    </div>
-  </div>
-  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
-  <input type="submit" class="btn btn-primary" name="proses"></input>
-  <a class="btn btn-danger" href="tampil-periksa.php" role="button">Cancel</a>
+</div>
+<div class="form-group">
+    <label for="tgl_periksa">Tanggal Periksa</label>
+    <input type="date" name="tgl_periksa" id="tgl_periksa" value="<?=date('Y-m-d')?>" class="tgl_periksa" required>
+</div>
+<input type="submit" class="btn btn-primary" name="add"></input>
+<a href="tampil-periksa-pend.php" type="button" class="btn btn-danger">Kembali</a>
 </form>
 
-<?php
-include "../database/koneksi.php";
 
-if(isset($_POST['proses'])){
-mysqli_query($connect, "UPDATE pendaftaran SET 
-id_departemen     = '$_POST[id_departemen]', 
-id_pasien         = '$_POST[id_pasien]',
-tgl_periksa     = '$_POST[tgl_periksa]'
-where id_periksa  = '$_GET[kode]'");
-
-echo "Data Periksa telah diubah";
-echo "<meta http-equiv=refresh content=1;URL='tampil-periksa.php'>";
-
-}?>
-
+</div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

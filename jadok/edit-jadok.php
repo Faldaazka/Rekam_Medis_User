@@ -1,14 +1,12 @@
 <?php
 include "../database/koneksi.php";
-$sql=mysqli_query($connect, "SELECT * FROM jadok WHERE id_dokter='$_GET[kode]'");
-$data=mysqli_fetch_array($sql);
-
-?>
+$sql=mysqli_query($connect, "SELECT * FROM jadok WHERE id_jadok='$_GET[kode]'");
+$data=mysqli_fetch_array($sql);?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Edit Pasien</title>
+    <title>Edit Jadwal Dokter</title>
 
     <!-- Latest compiled and minified CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -24,36 +22,89 @@ $data=mysqli_fetch_array($sql);
   </head>
   <body>
 
-  <div class="container">
-    <h3 align="center"><strong>Edit Jadok</h3><br/>
-    <form action="" method="post">
-        <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Keterangan</label>
-            <div class="col-sm-10">
-                <input type="text" name="dokter_keterangan" size="30" value="<?php echo $data['dokter_keterangan']; ?>">
-            </div>
-        </div>
-        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
-        <input type="submit" class="btn btn-primary" name="proses"></input>
-        <a class="btn btn-danger" href="tampil-jadok.php" role="button">Cancel</a>
 
-    </form>
+<div class="container">
+<h3><strong>Edit Jadwal Dokter</h3><br/>
+<form action="" method="post">
+<div class="form-group">
+    <label for="dokter_hari">Hari</label>
+    <select name="dokter_hari" id="dokter_hari" class="form-control">
+        <option value=><?php echo $data['dokter_hari']; ?></option>
+        <option value="Senin">Senin</option>
+        <option value="Selasa">Selasa</option>
+        <option value="Rabu">Rabu</option>
+        <option value="Kamis">Kamis</option>
+        <option value="Jumat">Jumat</option>
+        <option value="Sabtu">Sabtu</option>
+        <option value="Minggu">Minggu</option>
+    </select>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Nama Dokter</label>
+    <div class="col-sm-10">
+    <select name="id_dokter" id="id_dokter" class="form-control">
+        <option value=""></option>
+        <?php
+        include "../database/koneksi.php";
+        $sql_dokter = mysqli_query($connect,"select * from dokter");
+        while($data_dokter = mysqli_fetch_array($sql_dokter)){
+            echo '<option value="'.$data_dokter['id_dokter'].'">'.$data_dokter['nama_dokter'].'</option>';
+        }
+        ?>
+    </select>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Waktu</label>
+    <div class="col-sm-10">
+      <input type="time" name="waktu_shift" size="30" value="<?php echo $data['waktu_shift']; ?>">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Nama Departemen</label>
+    <div class="col-sm-10">
+    <select name="id_departemen" id="id_departemen" class="form-control">
+        <option value="">--Pilih Salah Satu--</option>
+        <?php
+        include "../database/koneksi.php";
+        $sql_departemen = mysqli_query($connect,"select * from departemen");
+        while($data_departemen = mysqli_fetch_array($sql_departemen)){
+            echo '<option value="'.$data_departemen['id_departemen'].'">'.$data_departemen['nama_departemen'].'</option>';
+        }
+        ?>
+    </select>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Keterangan</label>
+    <div class="col-sm-10">
+      <input type="text" name="dokter_keterangan" size="30" value="<?php echo $data['dokter_keterangan']; ?>">
+    </div>
+  </div>
+  
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+  <input type="submit" class="btn btn-primary" name="proses"></input>
+  <a class="btn btn-danger" href="tampil-jadok.php" role="button">Cancel</a>
+</form>
 
 <?php
 include "../database/koneksi.php";
 
 if(isset($_POST['proses'])){
-mysqli_query($connect, "UPDATE jadok SET  
-dokter_keterangan     = '$_POST[dokter_keterangan]'
-where id_dokter       = '$_GET[kode]'");
+mysqli_query($connect, "UPDATE jadok SET 
+dokter_hari         = '$_POST[dokter_hari]',
+id_dokter           = '$_POST[id_dokter]', 
+id_departemen       = '$_POST[id_departemen]',
+waktu_shift         = '$_POST[waktu_shift]',
+dokter_keterangan   = '$_POST[dokter_keterangan]'
+where id_jadok  = '$_GET[kode]'");
 
-echo "keterangan jadwal dokter telah diubah";
+echo "Data janji telah diubah";
 echo "<meta http-equiv=refresh content=1;URL='tampil-jadok.php'>";
 
-}
+}?>
 
-?>
-    </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

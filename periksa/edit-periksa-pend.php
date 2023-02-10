@@ -64,7 +64,7 @@ $data=mysqli_fetch_array($sql);?>
   </div>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   <input type="submit" class="btn btn-primary" name="proses"></input>
-  <a class="btn btn-danger" href="tampil-periksa.php" role="button">Cancel</a>
+  <a class="btn btn-danger" href="tampil-janji.php" role="button">Cancel</a>
 </form>
 
 <?php
@@ -74,11 +74,11 @@ if(isset($_POST['proses'])){
 mysqli_query($connect, "UPDATE pendaftaran SET 
 id_departemen     = '$_POST[id_departemen]', 
 id_pasien         = '$_POST[id_pasien]',
-tgl_periksa     = '$_POST[tgl_periksa]'
+tgl_periksa       = '$_POST[tgl_periksa]'
 where id_periksa  = '$_GET[kode]'");
 
 echo "Data Periksa telah diubah";
-echo "<meta http-equiv=refresh content=1;URL='tampil-periksa.php'>";
+echo "<meta http-equiv=refresh content=1;URL='tampil-periksa-pend.php'>";
 
 }?>
 

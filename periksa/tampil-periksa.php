@@ -32,12 +32,12 @@ location='../auth/login.php'</script>";
                 &ensp;&ensp;  
                 <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
                 &ensp;
-                <a href="tambah-periksa.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Periksa</a>      
+                <a href="tambah-periksa.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Periksa</a>      
             </div>
         </h4>
         <div class="pull-left">
                 &ensp;&ensp;  
-                <a href="../pendaftaran.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
+                <a href="../admin.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
         </div>
         <div class ="pull-right" style="margin-bottom: 20px;">
             <form class="form-inline" action="" method="post">
@@ -57,7 +57,7 @@ location='../auth/login.php'</script>";
             <th>No.</th>
             <th >Nama Departemen</th>
             <th >Nama Pasien</th>
-            <th >Tgl Periksa</th>
+            <th >Tanggal Periksa</th>
             <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
 
         </tr>
@@ -79,7 +79,7 @@ location='../auth/login.php'</script>";
                 <td>$row[nama_pasien]</td>
                 <td>$row[tgl_periksa]</td>
                 <td><a href='?kode=$row[id_periksa]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
-                <td><a href='edit-pasien.php?kode=$row[id_pasien]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
+                <td><a href='edit-periksa.php?kode=$row[id_periksa]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";
             $no++;
         }
@@ -93,7 +93,7 @@ location='../auth/login.php'</script>";
         mysqli_query($connect, "DELETE FROM pendaftaran WHERE id_periksa='$_GET[kode]'");
         
         echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='tampil-periksa_.php'>";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-periksa.php'>";
 
         }
     ?>

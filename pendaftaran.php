@@ -67,20 +67,20 @@ location='../auth/login.php'</script>";
           <li><a class="nav-link scrollto" href="#departemen">Departemen</a></li>
           <li class="dropdown"><a href="#"><span>Dokter</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="dokter/tampil-dokter.php">Dokter</a></li>
-            <li><a class="nav-link scrollto" href="jadok/tampil-jadok_.php">Jadwal Dokter</a></li>
+            <li><a class="nav-link scrollto" href="dokter/tampil-dokter-pend.php">Dokter</a></li>
+            <li><a class="nav-link scrollto" href="jadok/tampil-jadok-pend.php">Jadwal Dokter</a></li>
             <li><a class="nav-link scrollto" href="janji/tampil-janji_.php">Janji</a></li>
             </ul>
           <li><a class="nav-link scrollto" href="pasien/tampil-pasien_.php">Pasien</a></li>
           <li class="dropdown"><a href="#"><span>Pendaftaran</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="periksa/tampil-periksa.php">Periksa</a></li>
+            <li><a class="nav-link scrollto" href="periksa/tampil-periksa-pend.php">Periksa</a></li>
             <li><a class="nav-link scrollto" href="daftar/antrian.php">Antrian</a></li>
             </ul>
           <li class="dropdown"><a href="#"><span>Obat</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a class="nav-link scrollto" href="obat/resep.php">Resep Obat</a></li>
-              <li><a class="nav-link scrollto" href="obat/tampil-obat.php">Daftar Obat</a></li>
+              <li><a class="nav-link scrollto" href="obat/tampil-obat_.php">Daftar Obat</a></li>
             </ul>
           
         </ul>
