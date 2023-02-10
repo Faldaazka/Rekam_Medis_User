@@ -23,7 +23,7 @@ location='../auth/login.php'</script>";
 </head>
    <body>
     <div class="container">
-    <h1 align="center"><strong>Jadwal Dokter</strong></h1>
+    <h1 align="center"><strong>Daftar Dokter</strong></h1>
     <br/>
 
     <div class="container">
@@ -59,10 +59,8 @@ location='../auth/login.php'</script>";
             <th >Jenis Kelamin</th>
             <th >Departemen</th>
             <th >Tanggal Lahir</th>
-            <th >Telephone</th>
+            <th >No. Telephone</th>
             <th >alamat</th>
-            <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
-
         </tr>
         </thead>
         <tbody>
@@ -81,26 +79,14 @@ location='../auth/login.php'</script>";
                 <td>$row[jk_dokter]</td>
                 <td>$row[nama_departemen]</td>
                 <td>$row[tgl_lahir_dokter]</td>
+                <td>$row[no_tlp_dokter]</td>
                 <td>$row[alamat_dokter]</td>
-                <td><a href='?kode=$row[id_dokter]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
-                <td><a href='edit-dokter.php?kode=$row[id_dokter]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";
             $no++;
         }
         ?>
         </tbody>
         </table>
-        <?php
-        include "../database/koneksi.php";
-
-        if(isset($_GET['kode'])){
-        mysqli_query($connect, "DELETE FROM dokter WHERE id_dokter='$_GET[kode]'");
-        
-        echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='tampil-dokter.php'>";
-
-        }
-    ?>
 </div> 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

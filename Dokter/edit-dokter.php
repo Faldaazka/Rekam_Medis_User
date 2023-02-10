@@ -35,8 +35,7 @@ $data=mysqli_fetch_array($sql);?>
   <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
     <div class="col-sm-10">
-    <select value="<?php echo $data['jk_dokter']; ?>" name="jk_dokter" value="<?php echo $data['jenis_kelamin']; ?>">
-    <option selected>Pilih Salah Satu</option>
+    <select name="jk_dokter" value="<?php echo $data['jenis_kelamin']; ?>">
     <option value="Laki-Laki">Laki-Laki</option>
     <option value="Perempuan">Perempuan</option>
     </select>
@@ -76,12 +75,6 @@ $data=mysqli_fetch_array($sql);?>
         <input type="text" name="alamat_dokter" size="30" value="<?php echo $data['alamat_dokter']; ?>">
     </div>
   </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Tanggal Daftar</label>
-    <div class="col-sm-10">
-        <input type="date" name="tgl_daftar" size="30" value="<?php echo $data['tgl_daftar']; ?>">
-    </div>
-  </div>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   <input type="submit" class="btn btn-primary" name="proses"></input>
   <a class="btn btn-danger" href="tampil-dokter.php" role="button">Cancel</a>
@@ -94,12 +87,10 @@ if(isset($_POST['proses'])){
 mysqli_query($connect, "UPDATE dokter SET  
 nama_dokter         = '$_POST[nama_dokter]',
 jk_dokter           = '$_POST[jk_dokter]',
-tgl_lahir           = '$_POST[tgl_lahir]',
 id_departemen       = '$_POST[id_departemen]',
 tgl_lahir_dokter    = '$_POST[tgl_lahir_dokter]',
 no_tlp_dokter       = '$_POST[no_tlp_dokter]',
-alamat              = '$_POST[alamat]',
-tgl_daftar          = '$_POST[tgl_daftar]'
+alamat_dokter             = '$_POST[alamat_dokter]'
 where id_dokter     = '$_GET[kode]'");
 
 echo "Data pasien telah diubah";
