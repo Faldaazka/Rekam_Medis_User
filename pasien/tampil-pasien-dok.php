@@ -33,13 +33,11 @@ location='../auth/login.php'</script>";
                 &ensp;
                 <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
                 &ensp;
-                <a href="tambah-pasien.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Pasien</a>      
             </div>
         </h4>
         <div class="pull-left">
                 &ensp;&ensp;  
-                <a href="../pendaftaran.php" type="button" class="btn btn-primary">Kembali</a>
-                <a href="../periksa/tambah-periksa.php" type="button" class="btn btn-warning"><span class="bi bi-arrow-bar-left"></span>Periksa</a>
+                <a href="../dokter.php" type="button" class="btn btn-primary">Kembali</a>
         </div>
         <div class ="pull-right" style="margin-bottom: 20px;">
             <form class="form-inline" action="" method="post">
@@ -64,7 +62,7 @@ location='../auth/login.php'</script>";
             <th >Telephone</th>
             <th >Alamat</th>
             <th >Tgl Daftar</th>
-            <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
+            
 
         </tr>
         </thead>
@@ -84,8 +82,7 @@ location='../auth/login.php'</script>";
                 <td>$row[no_tlp_pasien]</td>
                 <td>$row[alamat]</td>
                 <td>$row[tgl_daftar]</td>
-                <td><a href='?kode=$row[id_pasien]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
-                <td><a href='edit-pasien.php?kode=$row[id_pasien]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
+                
             <tr>";
             $no++;
         }
@@ -99,7 +96,7 @@ location='../auth/login.php'</script>";
         mysqli_query($connect, "DELETE FROM pasien WHERE id_pasien='$_GET[kode]'");
         
         echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='tampil-pasien.php'>";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-pasien_.php'>";
 
         }
     ?>

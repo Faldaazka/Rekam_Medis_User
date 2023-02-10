@@ -71,7 +71,7 @@ location='../auth/login.php'</script>";
             <li><a class="nav-link scrollto" href="jadok/tampil-jadok-pend.php">Jadwal Dokter</a></li>
             <li><a class="nav-link scrollto" href="janji/tampil-janji_.php">Janji</a></li>
             </ul>
-          <li><a class="nav-link scrollto" href="pasien/tampil-pasien_.php">Pasien</a></li>
+          <li><a class="nav-link scrollto" href="pasien/tampil-pasien-pend.php">Pasien</a></li>
           <li class="dropdown"><a href="#"><span>Pendaftaran</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <li><a class="nav-link scrollto" href="periksa/tampil-periksa-pend.php">Periksa</a></li>

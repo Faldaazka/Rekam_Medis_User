@@ -75,7 +75,7 @@ $data=mysqli_fetch_array($sql);?>
   </div>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   <input type="submit" class="btn btn-primary" name="proses"></input>
-  <a class="btn btn-danger" href="tampil-pasien_.php" role="button">Cancel</a>
+  <a class="btn btn-danger" href="tampil-pasien.php" role="button">Cancel</a>
 </form>
 
 <?php
@@ -92,7 +92,7 @@ tgl_daftar      = '$_POST[tgl_daftar]'
 where id_pasien = '$_GET[kode]'");
 
 echo "Data pasien telah diubah";
-echo "<meta http-equiv=refresh content=1;URL='tampil-pasien_.php'>";
+echo "<meta http-equiv=refresh content=1;URL='tampil-pasien.php'>";
 
 }?>
 

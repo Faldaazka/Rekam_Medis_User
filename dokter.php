@@ -68,8 +68,8 @@ location='../auth/login.php'</script>";
           <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
           <li class="dropdown"><a href="#"><span>Pasien</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="pasien/tampil-pasien_.php">Daftar Pasien</a></li>
-            <li><a class="nav-link scrollto" href="periksa/tampil-periksa_.php">Periksa</a></li>
+            <li><a class="nav-link scrollto" href="pasien/tampil-pasien-dok.php">Daftar Pasien</a></li>
+            <li><a class="nav-link scrollto" href="periksa/tampil-periksa-dok.php">Periksa</a></li>
             </ul>
           <li class="dropdown"><a href="#"><span>Dokter</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -102,23 +102,14 @@ location='../auth/login.php'</script>";
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
-        <div class="container">
-  
-          <div class="row">
-            <div class="col-lg-4 d-flex align-items-stretch">
-            </div>
+       
           </div>
                 
         </div><!-- End .content-->
-      </section><!-- End Why Us Section -->
+      </section><br/><br/><br/><!-- End Why Us Section -->
 
     <!-- ======= Appointment Section ======= -->
-    <section id="appointment" class="appointment section-bg">
-      <div class="container">
-
-       
-      </div>
-    </section>
+   
     <!-- End Appointment Section -->
 
     <!-- ======= Departemen Section ======= -->
