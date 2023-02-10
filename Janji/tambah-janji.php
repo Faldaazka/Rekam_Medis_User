@@ -37,11 +37,6 @@
     <input type="time" name="waktu_janji" id="waktu_janji" class="form-control" required>
 </div>
 <div class="form-group">
-    <label for="no_tlp_pasien">No Telephone</label>
-    <textarea name="no_tlp_pasien" id="no_tlp_pasien" class="form-control" required>
-    </textarea>
-</div>
-<div class="form-group">
     <label for="tgl_janji">Tanggal Janji</label>
     <input type="date" name="tgl_janji" id="tgl_janji" class="form-control" required>
 </div>

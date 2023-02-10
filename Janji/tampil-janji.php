@@ -23,7 +23,7 @@ location='../auth/login.php'</script>";
 </head>
    <body>
     <div class="container">
-    <h1 align="center"><strong>Pendaftaran Pasien</strong></h1>
+    <h1 align="center"><strong>Daftar Janji</strong></h1>
     <br/>
 
     <div class="container">
@@ -32,7 +32,7 @@ location='../auth/login.php'</script>";
                 &ensp;&ensp;  
                 <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
                 &ensp;
-                <a href="tambah-periksa.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Periksa</a>      
+                <a href="tambah-periksa.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Janji</a>      
             </div>
         </h4>
         <div class="pull-left">
@@ -56,9 +56,9 @@ location='../auth/login.php'</script>";
         <tr>
             <th>No.</th>
             <th >Nama Pasien</th>
-            <th >Waktu</th>
+            <th >Waktu Janji</th>
             <th >No Telephone</th>
-            <th >Tanggal</th>
+            <th >Tanggal Janji</th>
             <th >Departemen</th>
             <th >Nama Dokter</th>
             <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
@@ -99,7 +99,7 @@ location='../auth/login.php'</script>";
         mysqli_query($connect, "DELETE FROM janji WHERE id_janji='$_GET[kode]'");
         
         echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='tampil-janji_.php'>";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-janji.php'>";
 
         }
     ?>
