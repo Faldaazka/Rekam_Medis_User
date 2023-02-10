@@ -69,13 +69,13 @@ location='../auth/login.php'</script>";
           <li><a class="nav-link scrollto" href="#antrian">Antrian</a></li>
           <li class="dropdown"><a href="#"><span>Jadwal</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="">Dokter</a></li>
-            <li><a class="nav-link scrollto" href="">Janji</a></li>
+            <li><a class="nav-link scrollto" href="jadok/tampil-jadok.php">Jadwal Dokter</a></li>
+            <li><a class="nav-link scrollto" href="janji/tampil-janji.php">Janji</a></li>
             </ul>
           <li class="dropdown"><a href="#"><span>Rekam Medis</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <li><a class="nav-link scrollto" href="#medis">Data Rekam Medis</a></li>
-            <li><a class="nav-link scrollto" href="#resep">Resep Obat</a></li>
+            <li><a class="nav-link scrollto" href="#resep">Data Resep Obat</a></li>
             <li><a class="nav-link scrollto" href="#rujukan">Rujukan</a></li>
             <li><a class="nav-link scrollto" href="#medis">Surat Keterangan Sakit</a></li>
             </ul>
@@ -83,7 +83,7 @@ location='../auth/login.php'</script>";
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Appointment</span></a>
+      <a href="janji/tambah-janji.php" class="appointment-btn scrollto"><span class="d-none d-md-inline">Appointment</span></a>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <a href="auth/logout.php" class="btn btn-danger"><span class="d-none d-md-inline">Logout</span></a>
     </div>
@@ -115,80 +115,7 @@ location='../auth/login.php'</script>";
     <section id="appointment" class="appointment section-bg">
       <div class="container">
 
-        <div class="section-title">
-          <h2>Janji Dokter</h2>
-          <p></p>
-        </div>
-
-        <form action="tambah-janji.php" method="post" role="form" class="php-email-form">
-          <div class="row">
-            <div class="col-md-4 form-group">
-            <select name="id_pasien" id="id_pasien" class="form-control" required>
-        <option value="">--Pilih Nama Pasien--</option>
-        <?php
-        include "../database/koneksi.php";
-        $sql_pasien = mysqli_query($connect,"select * from pasien");
-        while($data_pasien = mysqli_fetch_array($sql_pasien)){
-            echo '<option value="'.$data_pasien['id_pasien'].'">'.$data_pasien['nama_pasien'].'</option>';
-        }
-        ?>
-    </select>
-          <div class="validate"></div>
-        </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Email Pasien" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="No Telephone Pasien" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 form-group mt-3">
-              <input type="date" name="tanggal" class="form-control datepicker" id="tanggal" placeholder="Tanggal Janji" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-            <select name="id_departemen" id="id_departemen" class="form-control" required>
-                <option value="">--Pilih Departemen--</option>
-                <?php
-                include "../database/koneksi.php";
-                $sql_departemen = mysqli_query($connect,"select * from departemen");
-                while($data_departemen = mysqli_fetch_array($sql_departemen)){
-                    echo '<option value="'.$data_departemen['id_departemen'].'">'.$data_departemen['nama_departemen'].'</option>';
-                }
-                ?>
-            </select>
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-            <select name="id_dokter" id="id_dokter" class="form-control" required>
-                <option value="">--Pilih Dokter--</option>
-                <?php
-                include "../database/koneksi.php";
-                $sql_dokter = mysqli_query($connect,"select * from dokter");
-                while($data_dokter = mysqli_fetch_array($sql_dokter)){
-                    echo '<option value="'.$data_dokter['id_dokter'].'">'.$data_departemen['nama_dokter'].'</option>';
-                }
-                ?>
-            </select>
-              <div class="validate"></div>
-            </div>
-          </div>
-
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Buat Janji</button></div>
-        </form>
-
+       
       </div>
     </section>
     <!-- End Appointment Section -->

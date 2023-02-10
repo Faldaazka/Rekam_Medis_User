@@ -55,7 +55,6 @@ location='../auth/login.php'</script>";
         <thead class="">
         <tr>
             <th>No.</th>
-            <th >Id Pendaftaran</th>
             <th >Nama Departemen</th>
             <th >Nama Pasien</th>
             <th >Tgl Periksa</th>
@@ -67,17 +66,19 @@ location='../auth/login.php'</script>";
         <?php
         include "../database/koneksi.php";
         $no=1;
-        $ambildata = mysqli_query($connect,"select * from pendaftaran");
-        while($row = mysqli_fetch_array($ambildata)){
+        $query = "SELECT * FROM pendaftaran
+                    INNER JOIN departemen ON pendaftaran.id_departemen = departemen.id_departemen
+                    INNER JOIN pasien ON pendaftaran.id_pasien = pasien.id_pasien";
+
+        $sql_pendaftaran = mysqli_query($connect, $query) or die (mysqli_error($connect));
+        while($row = mysqli_fetch_array($sql_pendaftaran)){
             echo "
             <tr>
                 <td>$no</td>
-                <td>$row[id_pendaftaran]</td>
-                <td>$row[id_departemen]</td>
-                <td>$row[id_pasien]</td>
+                <td>$row[nama_departemen]</td>
                 <td>$row[nama_pasien]</td>
                 <td>$row[tgl_periksa]</td>
-                <td><a href='?kode=$row[id_pasien]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
+                <td><a href='?kode=$row[id_periksa]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
                 <td><a href='edit-pasien.php?kode=$row[id_pasien]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";
             $no++;
@@ -89,10 +90,10 @@ location='../auth/login.php'</script>";
         include "../database/koneksi.php";
 
         if(isset($_GET['kode'])){
-        mysqli_query($connect, "DELETE FROM pasien WHERE id_pasien='$_GET[kode]'");
+        mysqli_query($connect, "DELETE FROM pendaftaran WHERE id_periksa='$_GET[kode]'");
         
         echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='tampil-pasien_.php'>";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-periksa_.php'>";
 
         }
     ?>

@@ -14,11 +14,12 @@
 </head>
    <body>
    <div class="container">
-   <h3 align="center"><strong>Tambah Janji Periksa</h3><br/>
+   <h3 align="center"><strong>Tambah Rekam Medis</h3><br/>
    <div class="row mb-3">
    <div class="col-lg-6 col-lg-offset-3">
 
    <form action="proses.php" method="post">
+    <!--id_pasien (nama_pasien)-->
    <div class="form-group">
     <label for="id_pasien">Nama Pasien</label>
     <select name="id_pasien" id="id_pasien" class="form-control" required>
@@ -32,32 +33,7 @@
         ?>
     </select>
 </div>
-<div class="form-group">
-    <label for="waktu_janji">Waktu Janji</label>
-    <input type="time" name="waktu_janji" id="waktu_janji" class="form-control" required>
-</div>
-<div class="form-group">
-    <label for="no_tlp_pasien">No Telephone</label>
-    <textarea name="no_tlp_pasien" id="no_tlp_pasien" class="form-control" required>
-    </textarea>
-</div>
-<div class="form-group">
-    <label for="tgl_janji">Tanggal Janji</label>
-    <input type="date" name="tgl_janji" id="tgl_janji" class="form-control" required>
-</div>
-<div class="form-group">
-    <label for="id_departemen">Nama Departemen</label>
-    <select name="id_departemen" id="id_departemen" class="form-control" required>
-        <option value="">--Pilih Salah Satu--</option>
-        <?php
-        include "../database/koneksi.php";
-        $sql_departemen = mysqli_query($connect,"select * from departemen");
-        while($data_departemen = mysqli_fetch_array($sql_departemen)){
-            echo '<option value="'.$data_departemen['id_departemen'].'">'.$data_departemen['nama_departemen'].'</option>';
-        }
-        ?>
-    </select>
-</div>
+<!--id_dokter (nama_dokter)-->
 <div class="form-group">
     <label for="id_dokter">Nama Dokter</label>
     <select name="id_dokter" id="id_dokter" class="form-control" required>
@@ -71,10 +47,66 @@
         ?>
     </select>
 </div>
+<!--id_departemen (nama_departemen)-->
+<div class="form-group">
+    <label for="id_departemen">Nama Departemen</label>
+    <select name="id_departemen" id="id_departemen" class="form-control" required>
+        <option value="">--Pilih Salah Satu--</option>
+        <?php
+        include "../database/koneksi.php";
+        $sql_departemen = mysqli_query($connect,"select * from departemen");
+        while($data_departemen = mysqli_fetch_array($sql_departemen)){
+            echo '<option value="'.$data_departemen['id_departemen'].'">'.$data_departemen['nama_departemen'].'</option>';
+        }
+        ?>
+    </select>
+</div>
+<!--Tanggal Pemeriksaan -->
+<div class="form-group">
+    <label for="tgl_pemeriksaan">Tanggal Pemeriksaan</label>
+    <input type="date" name="tgl_pemeriksaan" id="tgl_pemeriksaan" class="form-control" required>
+</div>
+<!--Keluhan Pasien -->
+<div class="form-group">
+    <label for="keluhan_pasien">Keluhan Pasien</label>
+    <textarea name="keluhan_pasien" id="keluhan_pasien" class="form-control" required>
+    </textarea>
+</div>
+<!--Diagnosa Pasien -->
+<div class="form-group">
+    <label for="diagnosa_pasien">Diagnosa Pasien</label>
+    <textarea name="diagnosa_pasien" id="diagnosa_pasien" class="form-control" required>
+    </textarea>
+</div>
+<!--Pelayanan -->
+<div class="form-group">
+    <label for="pelayanan">Pelayanan</label>
+    <textarea name="pelayanan" id="pelayanan" class="form-control" required>
+    </textarea>
+</div>
+<!--Nama Obat-->
+<div class="form-group">
+    <label for="obat">Nama Obat</label>
+    <select multiple name="obat[]" id="obat" class="form-control" required>
+        <option value="">--Pilih Salah Satu--</option>
+        <?php
+        include "../database/koneksi.php";
+        $sql_obat = mysqli_query($connect,"select * from obat");
+        while($data_obat = mysqli_fetch_array($sql_obat)){
+            echo '<option value="'.$data_obat['id_obat'].'">'.$data_obat['nama_obat'].'</option>';
+        }
+        ?>
+    </select>
+</div>
+<!--Keterangan -->
+<div class="form-group">
+    <label for="keterangan">Keterangan</label>
+    <textarea name="keterangan" id="keterangan" class="form-control" required>
+    </textarea>
+</div>
 <input type="submit" class="btn btn-primary" name="add"></input>
-<a href="tampil-janji.php" type="button" class="btn btn-danger">Kembali</a>
+<a href="tampil-rekdis.php" type="button" class="btn btn-danger">Kembali</a>
 </form>
-
 </div>
 </div>
 </div>
