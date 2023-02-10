@@ -29,8 +29,8 @@ $data=mysqli_fetch_array($sql);?>
   <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Nama Pasien</label>
     <div class="col-sm-10">
-    <select name="id_pasien" id="id_pasien" class="form-control" required>
-        <option value="">--Pilih Salah Satu--</option>
+    <select name="id_pasien" id="id_pasien" class="form-control">
+        <option value="">value="<?php echo $data['nama_pasien']; ?>"</option>
         <?php
         include "../database/koneksi.php";
         $sql_pasien = mysqli_query($connect,"select * from pasien");
@@ -57,7 +57,7 @@ $data=mysqli_fetch_array($sql);?>
   <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Nama Departemen</label>
     <div class="col-sm-10">
-    <select name="id_departemen" id="id_departemen" class="form-control" required>
+    <select name="id_departemen" id="id_departemen" class="form-control">
         <option value="">--Pilih Salah Satu--</option>
         <?php
         include "../database/koneksi.php";
@@ -72,7 +72,7 @@ $data=mysqli_fetch_array($sql);?>
   <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Nama Dokter</label>
     <div class="col-sm-10">
-    <select name="id_dokter" id="id_dokter" class="form-control" required>
+    <select name="id_dokter" id="id_dokter" class="form-control">
         <option value="">--Pilih Salah Satu--</option>
         <?php
         include "../database/koneksi.php";
@@ -86,7 +86,7 @@ $data=mysqli_fetch_array($sql);?>
   </div>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   <input type="submit" class="btn btn-primary" name="proses"></input>
-  <a class="btn btn-danger" href="tampil-janji.php" role="button">Cancel</a>
+  <a class="btn btn-danger" href="tampil-janji-dok.php" role="button">Cancel</a>
 </form>
 
 <?php
@@ -101,7 +101,7 @@ id_dokter       = '$_POST[id_dokter]'
 where id_janji  = '$_GET[kode]'");
 
 echo "Data janji telah diubah";
-echo "<meta http-equiv=refresh content=1;URL='tampil-janji.php'>";
+echo "<meta http-equiv=refresh content=1;URL='tampil-janji-dok.php'>";
 
 }?>
 

@@ -26,12 +26,6 @@ $data=mysqli_fetch_array($sql);?>
 <div class="container">
 <h3><strong>Edit Obat</h3><br/>
 <form action="" method="post">
-<div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Id Obat</label>
-    <div class="col-sm-10">
-        <input type="text" name="id_obat" size="30" value="<?php echo $data['id_obat']; ?>">
-    </div>
-  </div>
   <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Nama Obat</label>
     <div class="col-sm-10">

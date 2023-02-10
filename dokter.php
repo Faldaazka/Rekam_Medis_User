@@ -74,7 +74,7 @@ location='../auth/login.php'</script>";
           <li class="dropdown"><a href="#"><span>Dokter</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <li><a class="nav-link scrollto" href="jadok/tampil-jadok-dok.php">Jadwal Dokter</a></li>
-            <li><a class="nav-link scrollto" href="janji/tampil-janji.php">Janji</a></li>
+            <li><a class="nav-link scrollto" href="janji/tampil-janji-dok.php">Janji Dokter</a></li>
             </ul>
           <li class="dropdown"><a href="#"><span>Rekam Medis</span> <i class="bi bi-chevron-down"></i></a>
             <ul>

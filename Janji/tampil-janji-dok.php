@@ -32,12 +32,12 @@ location='../auth/login.php'</script>";
                 &ensp;&ensp;  
                 <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
                 &ensp;
-                <a href="tambah-janji.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Janji</a>      
+                <a href="tambah-janji-dok.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Janji</a>      
             </div>
         </h4>
         <div class="pull-left">
                 &ensp;&ensp;  
-                <a href="../pendaftaran.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
+                <a href="../dokter.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
         </div>
         <div class ="pull-right" style="margin-bottom: 20px;">
             <form class="form-inline" action="" method="post">
@@ -84,7 +84,7 @@ location='../auth/login.php'</script>";
                 <td>$row[nama_departemen]</td>
                 <td>$row[nama_dokter]</td>
                 <td><a href='?kode=$row[id_janji]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
-                <td><a href='edit-janji.php?kode=$row[id_janji]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
+                <td><a href='edit-janji-dok.php?kode=$row[id_janji]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";
             $no++;
         }
@@ -98,7 +98,7 @@ location='../auth/login.php'</script>";
         mysqli_query($connect, "DELETE FROM janji WHERE id_janji='$_GET[kode]'");
         
         echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='tampil-janji.php'>";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-janji-dok.php'>";
 
         }
     ?>
