@@ -30,7 +30,7 @@ if($password == $user_valid['password']) {
     } elseif ($level == "Dokter") {
         header('location:../dokter.php');
     } elseif ($level == "Administrator") {
-        header('location:admin.php');
+        header('location:../Admin/index.php');
     } 
     }else{
         echo "<script>alert('Maaf, Login Gagal, Password anda tidak sesuai!');document.location='login.php'</script>";

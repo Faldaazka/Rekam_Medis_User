@@ -15,7 +15,7 @@ include "../_config/config.php";
 
     <!-- Bootstrap core CSS -->
     
-<link href="<?=base_url('assets/dist/css/bootstrap.min.css');?>" rel="stylesheet">
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {

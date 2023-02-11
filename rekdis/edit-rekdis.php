@@ -127,7 +127,7 @@ $data=mysqli_fetch_array($sql);?>
 include "../database/koneksi.php";
 
 if(isset($_POST['proses'])){
-mysqli_query($connect, "UPDATE janji SET  
+mysqli_query($connect, "UPDATE rekam_medis SET  
 id_pasien       = '$_POST[id_pasien]',
 id_dokter       = '$_POST[id_dokter]',
 id_departemen   = '$_POST[id_departemen]',
@@ -139,7 +139,7 @@ pelayanan       = '$_POST[pelayanan]',
 keterangan      = '$_POST[keterangan]'
 where id_rekam_medis  = '$_GET[kode]'");
 
-echo "Data janji telah diubah";
+echo "Data rekam medis telah diubah";
 echo "<meta http-equiv=refresh content=1;URL='tampil-rekdis.php'>";
 
 }?>
