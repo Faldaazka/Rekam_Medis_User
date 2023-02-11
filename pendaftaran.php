@@ -36,7 +36,7 @@ location='../auth/login.php'</script>";
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/pendaftaran.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/pendaftaran.css" rel="stylesheet">
   
   </head>
 
