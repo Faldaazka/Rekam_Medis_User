@@ -24,7 +24,7 @@ $data=mysqli_fetch_array($sql);?>
 
 
 <div class="container">
-<h3><strong>Tambah Pasien</h3><br/>
+<h3><strong>Edit Pasien</h3><br/>
 <form action="" method="post">
 <div class="row mb-3">
     <label class="col-sm-2 col-form-label">Id Pasien</label>
