@@ -12,10 +12,11 @@ include "../_config/config.php";
     <title>Halaman Login</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/floating-labels/">
-
+    
     <!-- Bootstrap core CSS -->
     
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../assets/dist/css/floating-labels.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
