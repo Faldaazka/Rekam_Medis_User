@@ -41,17 +41,19 @@ location='../auth/login.php'</script>";
   </head>
 
   <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <!-- ======= Top Bar ======= -->
+    <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope"></i> <a href="mailto:klinikallia@gmail.com">klinikallia@gmail.com</a>
         <i class="bi bi-phone"></i> +62 7535729
       </div>
-      <div class="pull-right">
-        <a>Selamat Datang, <mark color="yellow"><strong><?= $_SESSION['nama_user'] ?></strong></mark> di Halaman Pendaftaran</a>
+        <div class="pull-right">
+        <a>Selamat Datang, <mark color="yellow"><strong> Dokter &nbsp; <?= $_SESSION['nama_user'] ?></strong></mark> di Halaman Rekam Medis</a>
       </div>
     </div>
   </div>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
