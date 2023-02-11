@@ -10,8 +10,8 @@ if(isset($_POST['add'])){
 
     mysqli_query($connect, "INSERT INTO janji(id_janji, id_pasien, waktu_janji, tgl_janji, id_departemen, id_dokter) VALUES ('', '$id_pasien', '$waktu_janji', '$tgl_janji', '$id_departemen', '$id_dokter')") or die (mysqli_error($connect));
 
-    echo "Data Janji telah tersimpan";
-    echo "<meta http-equiv=refresh content=1;URL='tampil-janji.php'>";
+    echo "Data Janji Dokter telah tersimpan";
+    echo "<meta http-equiv=refresh content=1;URL='../tampil-janji.php'>";
 
 }
 ?>

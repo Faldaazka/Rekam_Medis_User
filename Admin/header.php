@@ -60,14 +60,13 @@ location='../auth/login.php'</script>";
                </a>
                <ul class="serv-show">
                <li><a href="#">Daftar Rekam Medis</a></li>
-              <li><a href="#">Surat Kesehatan</a></li>
                </ul>
             </li>
             <li><a href="#" class="pend-btn">Pendaftaran
             <span class="fas fa-caret-down third"></span>
           </a>
             <ul class="pend-show">
-              <li><a href="#">Pendaftaran Pasien</a></li>
+              <li><a href="tampil-periksa.php">Periksa Pasien</a></li>
               <li><a href="#">Sudah Diperiksa</a></li>
             </ul>
             </li>
@@ -84,7 +83,7 @@ location='../auth/login.php'</script>";
             <li><a href="#">Laporan Lengkap</a></li>
             </ul>
             </li>
-            <li><a href="#">User</a></li>
+            <li><a href="tampil-user.php">User</a></li>
             <li><a href="../auth/logout.php">Logout</a></li>
          </ul>
       </div>

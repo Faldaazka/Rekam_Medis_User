@@ -86,7 +86,7 @@ $data=mysqli_fetch_array($sql);?>
   </div>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   <input type="submit" class="btn btn-primary" name="proses"></input>
-  <a class="btn btn-danger" href="tampil-janji.php" role="button">Cancel</a>
+  <a class="btn btn-danger" href="../tampil-janji.php" role="button">Cancel</a>
 </form>
 
 <?php
@@ -101,7 +101,7 @@ id_dokter       = '$_POST[id_dokter]'
 where id_janji  = '$_GET[kode]'");
 
 echo "Data janji telah diubah";
-echo "<meta http-equiv=refresh content=1;URL='tampil-janji.php'>";
+echo "<meta http-equiv=refresh content=1;URL='../tampil-janji.php'>";
 
 }?>
 
