@@ -1,56 +1,133 @@
+<?php
+session_start();
+
+if(empty($_SESSION['username']) or empty ($_SESSION['level'])) {
+  echo "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
+location='../auth/login.php'</script>";
+}
+?>
+
 <!Doctype html>
    <head>
-   <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap4.min.css">
+   <!-- Latest compiled and minified CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
    <body>
     <div class="container">
-        <table id="example" class="table table-striped table-bordered">
-        <thead>
+    <h1 align="center"><strong>Pendaftaran Pasien</strong></h1>
+    <br/>
+
+    <div class="container">
+        <h4>
+        <div class="pull-right">
+                &ensp;&ensp;  
+                <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
+                &ensp;
+                <a href="tambah-periksa.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Periksa</a>      
+            </div>
+        </h4>
+        <div class="pull-left">
+                &ensp;&ensp;  
+                <a href="../admin.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
+        </div>
+        <div class ="pull-right" style="margin-bottom: 20px;">
+            <form class="form-inline" action="" method="post">
+            <div class="form-group">
+                <input type="text" name="pencarian" class="form-control" placeholder="Pencarian">
+        </div>
+        <div class="form-group">
+                <button type="submit" class="button btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        </div>
+            </form>
+        </div>
+    </div>
+
+        <table class="table table table-striped table-hover table table-bordered">
+        <thead class="">
         <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
+            <th>No.</th>
+            <th >Nama Departemen</th>
+            <th >Nama Pasien</th>
+            <th >Tanggal Periksa</th>
+            <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
+
+        </tr>
         </thead>
         <tbody>
-        <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-            </tr>
+        <?php
+        include "../database/koneksi.php";
+        $batas = 3;
+                $hal = @$_GET['hal'];
+                if(empty($hal)) {
+                    $posisi = 0;
+                    $hal = 1;
+                } else {
+                    $posisi = ($hal - 1) * $batas;
+                }
+        $no=1;
+        if($_SERVER['REQUEST_METHOD'] == "POST") {
+            $pencarian = trim(mysqli_real_escape_string($con, $_POST['pencarian']));
+            if($pencarian != ''){
+                $sql = "SELECT * FROM pendaftaran WHERE nama_pasien LIKE '%$pencarian%'";
+                $query = $sql;
+                $queryJml = $sql;
+        } else {
+            $query = "SELECT * FROM pendaftaran LIMIT $posisi, $batas";
+            $queryJml = "SELECT * FROM pendaftaran";
+            $no = $posisi + 1;
+        } 
+        }else {
+            $query = "SELECT * FROM pendaftaran LIMIT $posisi, $batas";
+            $queryJml = "SELECT * FROM pendaftaran";
+            $no = $posisi + 1;
+    }
+
+        $query = "SELECT * FROM pendaftaran
+                    INNER JOIN departemen ON pendaftaran.id_departemen = departemen.id_departemen
+                    INNER JOIN pasien ON pendaftaran.id_pasien = pasien.id_pasien";
+
+        $sql_pendaftaran = mysqli_query($connect, $query) or die (mysqli_error($connect));
+        while($row = mysqli_fetch_array($sql_pendaftaran)){?>
             <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-                <td>$170,750</td>
+            <td><?=$no++?></td>
+            <td><?=$data['nama_departemen']?></td>  
+            <td><?=$data['nama_pasien']?></td> 
+            <td><?=$data['tgl_periksa']?></td>                  
+            <td><a href='?kode=$row[id_periksa]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
+            <td><a href='edit-periksa.php?kode=$row[id_periksa]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009-01-12</td>
-                <td>$86,000</td>
-            </tr>
+            <?php
+            }else{
+            echo "<tr><td colspan=\"4\" align=\"center\">Data tidak ditemukan</td></tr>";
+                    }
+                    
+            ?>
         </tbody>
         </table>
-    </div> 
-<script>
-    $(document).ready(function () {
-    $('#example').DataTable();
-});
-</script>
+        <?php
+        include "../database/koneksi.php";
+
+        if(isset($_GET['kode'])){
+        mysqli_query($connect, "DELETE FROM pendaftaran WHERE id_periksa='$_GET[kode]'");
+        
+        echo "Data berhasil dihapus";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-periksa.php'>";
+
+        }
+    ?>
+</div> 
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
