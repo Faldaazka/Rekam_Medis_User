@@ -88,7 +88,7 @@
 <div class="form-group">
     <label for="obat">Nama Obat</label>
     <select multiple name="obat[]" id="obat" class="form-control" required>
-        <option value="">--Pilih Salah Satu--</option>
+        <option value="">--Pilih--</option>
         <?php
         include "../database/koneksi.php";
         $sql_obat = mysqli_query($connect,"select * from obat");
