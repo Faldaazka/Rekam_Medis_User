@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-if(empty($_SESSION['username']) or empty ($_SESSION['level'])) {
-  echo "<script>alert('Untuk mengakses halaman ini anda harus Login terlebih dahulu');document.
-location='../auth/login.php'</script>";
-}
-?>
-
 <!Doctype html>
    <head>
    <!-- Latest compiled and minified CSS -->
@@ -22,64 +13,61 @@ location='../auth/login.php'</script>";
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
    <body>
-    <div class="container">
-    <h1 align="center"><strong>Daftar Obat</strong></h1>
-    <br/>
+   <div class="container">
+   <h3 align="center"><strong>Tambah Daftar Dokter</h3><br/>
+   <div class="row mb-3">
+   <div class="col-lg-6 col-lg-offset-3">
 
-    <div class="container">
-        <h4>
-        <div class="pull-right">
-                &ensp;&ensp;  
-                <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
-                &ensp;
-            </div>
-        </h4>
-        <div class="pull-left">
-                &ensp;&ensp;  
-                <a href="../dokter.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
-        </div>
-        <div class ="pull-right" style="margin-bottom: 20px;">
-            <form class="form-inline" action="" method="post">
-            <div class="form-group">
-                <input type="text" name="pencarian" class="form-control" placeholder="Pencarian">
-        </div>
-        <div class="form-group">
-                <button type="submit" class="button btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        </div>
-            </form>
-        </div>
-    </div>
-
-        <table class="table table table-striped table-hover table table-bordered">
-        <thead class="">
-        <tr>
-            <th>No.</th>
-            <th >Id_Obat</th>
-            <th >Nama Obat</th>
-            <th >Stock Obat (per- tablet/kapsul)</th>
-        </tr>
-        </thead>
-        <tbody>
+   <form action="proses.php" method="post">
+<div class="form-group">
+    <label for="nama_dokter">Nama Dokter</label>
+    <textarea name="nama_dokter" id="nama_dokter" class="form-control" required>
+    </textarea>
+</div>
+<div class="form-group">
+    <label for="jk_dokter">Jenis Kelamin</label>
+    <select name="jk_dokter" id="jk_dokter" class="form-control" required>
+        <option value="">--Pilih Salah Satu--</option>
+        <option value="Laki-Laki">Laki-Laki</option>
+        <option value="Perempuan">Perempuan</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="id_departemen">Nama Departemen</label>
+    <select name="id_departemen" id="id_departemen" class="form-control" required>
+        <option value="">--Pilih Salah Satu--</option>
         <?php
         include "../database/koneksi.php";
-        $no=1;
-        $ambildata = mysqli_query($connect,"select * from obat");
-        while($row = mysqli_fetch_array($ambildata)){
-            echo "
-            <tr>
-                <td>$no</td>
-                <td>$row[id_obat]</td>
-                <td>$row[nama_obat]</td>
-                <td>$row[stok_obat]</td>
-            <tr>";
-            $no++;
+        $sql_departemen = mysqli_query($connect,"select * from departemen");
+        while($data_departemen = mysqli_fetch_array($sql_departemen)){
+            echo '<option value="'.$data_departemen['id_departemen'].'">'.$data_departemen['nama_departemen'].'</option>';
         }
         ?>
-        </tbody>
-        </table>
-    
-</div> 
+    </select>
+</div>
+<div class="form-group">
+    <label for="tgl_lahir_dokter">Tanggal Lahir</label>
+    <input type="date" name="tgl_lahir_dokter" id="tgl_lahir_dokter" class="form-control" required>
+</div>
+<div class="form-group">
+    <label for="no_tlp_dokter">No Telephone</label>
+    <textarea name="no_tlp_dokter" id="no_tlp_dokter" class="form-control" required>
+    </textarea>
+</div>
+<div class="form-group">
+    <label for="alamat_dokter">Alamat</label>
+    <textarea name="alamat_dokter" id="alamat_dokter" class="form-control" required>
+    </textarea>
+</div>
+<input type="submit" class="btn btn-primary" name="add"></input>
+<a href="../tampil-dokter.php" type="button" class="btn btn-danger">Kembali</a>
+</form>
 
+
+
+</div>
+</div>
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

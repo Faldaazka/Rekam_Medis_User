@@ -57,7 +57,7 @@ location='../auth/login.php'</script>";
             <th>No.</th>
             <th >Id_Obat</th>
             <th >Nama Obat</th>
-            <th >Stock Obat (dalam strip)</th>
+            <th >Stock Obat (per- tablet/kapsul)</th>
             <th><i class="glyphicon glyphicon-cog"><i></th>
         </tr>
         </thead>

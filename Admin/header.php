@@ -41,16 +41,17 @@ location='../auth/login.php'</script>";
          <div class="text"><span class="text-primary"><h>KLINIK ALLIA</span></h>
          </div>
          <ul>
-            <li class="active"><a href="">Dashboard</a></li>
+            <li class="active"><a href="index.php">Dashboard</a></li>
             <li>
                <a href="#" class="feat-btn">Input
                <span class="fas fa-caret-down first"></span>
                </a>
                <ul class="feat-show">
                <li><a href="tampil-pasien.php">Daftar Pasien</a></li>
-               <li><a href="#">Daftar Dokter</a></li>
-               <li><a href="">Daftar Obat</a></li>
-               <li><a href="#">Jadwal Dokter</a></li>
+               <li><a href="tampil-dokter.php">Daftar Dokter</a></li>
+               <li><a href="tampil-obat.php">Daftar Obat</a></li>
+               <li><a href="tampil-jadok.php">Jadwal Dokter</a></li>
+               <li><a href="tampil-janji.php">Janji Dokter</a></li>
                </ul>
             </li>
             <li>
