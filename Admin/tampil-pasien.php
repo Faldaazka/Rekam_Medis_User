@@ -3,19 +3,15 @@
 
 <div class="container">
    <h1 align="center"><strong>Daftar Pasien</strong></h1>
-        <br/>
+        <br/><br/><br/>
         <h4>
         <div class="pull-right">
             &ensp;&ensp;  
             <a href="" class="button1"><i class="glyphicon glyphicon-refresh"></i></a>  
             &ensp;
-            <a href="pasien/tambah-pasien.php" class="button1"><i class="glyphicon glyphicon-plus"></i>Tambah Pasien</a>      
+            <a href="pasien/tambah-pasien.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Obat</a>      
         </div>
         </h4>   
-        <div class="pull-left">
-                &ensp;&ensp;  
-                <a href="tampil-periksa.php" type="button1" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Periksa</a>
-        </div>
         <div class ="pull-right" style="margin-bottom: 20px;">
             <form class="form-inline" action="" method="post">
         
@@ -25,7 +21,7 @@
           
             </form>
         </div>
-
+    <br/>
     </div>
     <div class="table-responsive">
     <div class="container">
@@ -104,7 +100,7 @@
         mysqli_query($connect, "DELETE FROM pasien WHERE id_pasien='$_GET[kode]'");
         
         echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='pasien.php'>";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-pasien.php'>";
 
         }
     ?>

@@ -30,7 +30,7 @@ $data=mysqli_fetch_array($sql);?>
     <label class="col-sm-2 col-form-label">Nama Pasien</label>
     <div class="col-sm-10">
     <select name="id_pasien" id="id_pasien" class="form-control">
-        <option value="">value="<?php echo $data['nama_pasien']; ?>"</option>
+        <option value=""></option>
         <?php
         include "../database/koneksi.php";
         $sql_pasien = mysqli_query($connect,"select * from pasien");

@@ -20,7 +20,7 @@ if(isset($_POST['add'])){
       mysqli_query($connect, "INSERT INTO rm_obat(id_rekam_medis ,id_obat) VALUES ('$last_id', '$ob')") or die (mysqli_error($connect));
    }
     echo "Data periksa telah tersimpan";
-    echo "<meta http-equiv=refresh content=1;URL='tampil-rekdis.php'>";
+    echo "<meta http-equiv=refresh content=1;URL='../tampil-rekdis.php'>";
 
 }
 ?>

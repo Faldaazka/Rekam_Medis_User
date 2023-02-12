@@ -105,7 +105,7 @@
     </textarea>
 </div>
 <input type="submit" class="btn btn-primary" name="add"></input>
-<a href="tampil-rekdis.php" type="button" class="btn btn-danger">Kembali</a>
+<a href="tampil-rekdis-dok.php" type="button" class="btn btn-danger">Kembali</a>
 </form>
 </div>
 </div>

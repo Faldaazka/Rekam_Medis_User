@@ -26,33 +26,23 @@ location='../auth/login.php'</script>";
 <body>
     <div class="container">
         <h1 align="center"><strong>Rekam Medis</strong></h1>
-        <br />
-
+        <br /><br /><br />
         <div class="container">
             <h4>
                 <div class="pull-right">
                     &ensp;&ensp;
                     <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>
                     &ensp;
-                    <a href="tambah-rekdis.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Rekam Medis</a>
+                    <a href="tambah-rekdis-dok.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Rekam Medis</a>
                 </div>
             </h4>
             <div class="pull-left">
                 &ensp;&ensp;
                 <a href="../dokter.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
             </div>
-            <div class="pull-right" style="margin-bottom: 20px;">
-                <form class="form-inline" action="" method="post">
-                    <div class="form-group">
-                        <input type="text" name="pencarian" class="form-control" placeholder="Pencarian">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="button btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                    </div>
-                </form>
-            </div>
+            
         </div>
-
+        <br/>
         <table class="table table table-striped table-hover table table-bordered">
             <thead class="">
                 <tr>
@@ -112,7 +102,7 @@ location='../auth/login.php'</script>";
             mysqli_query($connect, "DELETE FROM rekam_medis WHERE id_rekam_medis='$_GET[kode]'");
 
             echo "Data berhasil dihapus";
-            echo "<meta http-equiv=refresh content=2;URL='tampil-rekdis.php'>";
+            echo "<meta http-equiv=refresh content=2;URL='tampil-rekdis-dok.php'>";
         }
         ?>
     </div>

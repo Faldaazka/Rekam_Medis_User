@@ -22,7 +22,7 @@
             &ensp;&ensp;  
             <a href="" class="button"><i class="glyphicon glyphicon-refresh"></i></a>  
             &ensp;
-            <a href="" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Pasien</a>      
+            <a href="tambah-obat.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Obat</a>      
         </div>
         </h4>   
         <div class="pull-left">
@@ -38,14 +38,15 @@
           
             </form>
         </div>
-
     </div>
+    <br/>
+    <br/>
     <div class="table-responsive">
     <div class="container">
         <table class="table table table-striped table-hover table table-bordered">
                 <thead>
                     <tr>
-                        <th>No.</th>
+                    <th>No.</th>
                         <th >Nama Obat</th>
                         <th >Stok Obat</th>
                         <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
@@ -80,7 +81,7 @@
                     $no = $posisi + 1;
             }
                 
-                    $sql_obat = mysqli_query($connect, $query) or die (mysqli_error($connect));
+            $sql_obat = mysqli_query($connect, $query) or die (mysqli_error($connect));
                     if(mysqli_num_rows($sql_obat) > 0) {
                         while($data = mysqli_fetch_array($sql_obat)) { ?>
                             <tr>
@@ -88,8 +89,7 @@
                                 <td><?=$data['nama_obat']?></td>  
                                 <td><?=$data['stok_obat']?></td>   
                                 <td><a href='?kode=<?=$data['id_obat']?>' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
-                                <td><a href='edit-obat.php?kode=<?=$data['id_obat']?>' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
-                                </td>
+                                <td><a href='edit-obat.php?kode=<?=$data['id_obat']?>' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td></td>
                             </tr>
                             <?php
                         }
@@ -104,21 +104,13 @@
         include "../database/koneksi.php";
 
         if(isset($_GET['kode'])){
-        mysqli_query($connect, "DELETE FROM pasien WHERE id_pasien='$_GET[kode]'");
+        mysqli_query($connect, "DELETE FROM obat WHERE id_obat='$_GET[kode]'");
         
         echo "Data berhasil dihapus";
-        echo "<meta http-equiv=refresh content=2;URL='pasien.php'>";
+        echo "<meta http-equiv=refresh content=2;URL='tampil-obat.php'>";
 
         }
     ?>
-        </div>
-        <?php
-        if($_POST['pencarian'] == '') { ?>
-            <div style="float:left;">
-                <?php
-                $jml = mysqli_num_rows(mysqli_query($connect, $queryJml));
-                echo "Jumlah Data : <b>$jml</b>";
-                ?>
         </div>
         <?php
         if($_POST['pencarian'] == '') { ?>
@@ -143,12 +135,12 @@
                 </ul>
             </div>
             <?php
-             }else {
+            } else {
                 echo "<div style=\"float:left;\">";
                 $jml = mysqli_num_rows(mysqli_query($connect, $queryJml));
                 echo "Data Hasil Pencaharian : <b>$jml</b>";
                 echo "</div>";
-    } }
+    } 
         ?>   
 </div>   
 </div>
@@ -157,4 +149,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
-}

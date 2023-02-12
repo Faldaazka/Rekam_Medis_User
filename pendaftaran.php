@@ -49,7 +49,7 @@ location='../auth/login.php'</script>";
         <i class="bi bi-phone"></i> +62 7535729
       </div>
         <div class="pull-right">
-        <a>Selamat Datang, <mark color="yellow"><strong> Dokter &nbsp; <?= $_SESSION['nama_user'] ?></strong></mark> di Halaman Rekam Medis</a>
+        <a>Selamat Datang, <mark color="yellow"><strong><?= $_SESSION['nama_user'] ?></strong></mark> di Halaman Rekam Medis</a>
       </div>
     </div>
   </div>
@@ -77,13 +77,8 @@ location='../auth/login.php'</script>";
           <li class="dropdown"><a href="#"><span>Pendaftaran</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <li><a class="nav-link scrollto" href="periksa/tampil-periksa-pend.php">Periksa</a></li>
-            <li><a class="nav-link scrollto" href="daftar/antrian.php">Antrian</a></li>
             </ul>
-          <li class="dropdown"><a href=""><span>Obat</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a class="nav-link scrollto" href="obat/resep.php">Resep Obat</a></li>
-              <li><a class="nav-link scrollto" href="obat/tampil-obat-dok.php">Daftar Obat</a></li>
-            </ul>
+            <li><a class="nav-link scrollto" href="obat/tampil-obat-pend.php">Obat</a></li>
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -191,8 +186,8 @@ location='../auth/login.php'</script>";
                 <div class="row gy-4">
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>Umum</h3>
-                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                    <p class="fst-italic">Departemen Umum atau dikenal dengan Poli umum menyediakan pelayanan kesehatanperawatan umum seperti perawatan rawat jalan</p>
+                    <p></p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
@@ -203,11 +198,11 @@ location='../auth/login.php'</script>";
                 <div class="row gy-4">
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>Gigi</h3>
-                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                    <p class="fst-italic">Departemen Gigi atau dikenal dengan Poli Gigi meyediakan pelayanan kesehatan perawatan gigi </p>
+                    <p></p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
+                    <img src="assets/img/gigi.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -215,11 +210,11 @@ location='../auth/login.php'</script>";
                 <div class="row gy-4">
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>Laboratorium</h3>
-                    <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
-                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                    <p class="fst-italic">Labotarium menyediakan pelayanan kesehatan berbagai macam tes dilakukan pada spesimen biologis untuk mendapatkan informasi tentang kesehatan pasien</p>
+                    <p></p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
+                    <img src="assets/img/labo.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>

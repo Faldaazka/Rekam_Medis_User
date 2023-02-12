@@ -2,8 +2,7 @@
 
     <div class="container">
     <h1 align="center"><strong>Daftar Dokter</strong></h1>
-    <br/>
-
+    <br/><br/><br/>
     <div class="container">
         <h4>
         <div class="pull-right">
@@ -11,20 +10,11 @@
                 <a href="" class="button1"><i class="glyphicon glyphicon-refresh"></i></a>  
                 &ensp;
                 <a href="dokter/tambah-dokter.php" class="button2"><i class="glyphicon glyphicon-plus"></i>Tambah Dokter</a>
+                &ensp;&ensp; 
             </div>
         </h4>
-        <div class ="pull-right" style="margin-bottom: 20px;">
-            <form class="form-inline" action="" method="post">
-            <div class="form-group">
-                <input type="text" name="pencarian" class="form-control" placeholder="Pencarian">
-        </div>
-        <div class="form-group">
-                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        </div>
-            </form>
-        </div>
     </div>
-
+    <br/>
         <table class="table table table-striped table-hover table table-bordered">
         <thead class="">
         <tr>

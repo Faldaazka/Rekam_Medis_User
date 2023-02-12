@@ -23,7 +23,7 @@ location='../auth/login.php'</script>";
 </head>
    <body>
    <div class="container">
-   <h1 align="center"><strong>Daftar Obat</strong></h1>
+   <h1 align="center"><strong>Daftar Pasien</strong></h1>
         <br/>
         <h4>
         <div class="pull-right">
@@ -36,6 +36,8 @@ location='../auth/login.php'</script>";
         <div class="pull-left">
                 &ensp;&ensp;  
                 <a href="../dokter.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
+                &ensp;&ensp;  
+                <a href="../periksa/tampil-periksa-dok.php" type="button" class="btn btn-warning"><span class="bi bi-arrow-bar-left"></span>Periksa</a>
         </div>
         <div class ="pull-right" style="margin-bottom: 20px;">
             <form class="form-inline" action="" method="post">

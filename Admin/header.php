@@ -55,20 +55,10 @@ location='../auth/login.php'</script>";
                </ul>
             </li>
             <li>
-               <a href="#" class="serv-btn">Rekam Medis
-               <span class="fas fa-caret-down second"></span>
-               </a>
-               <ul class="serv-show">
-               <li><a href="#">Daftar Rekam Medis</a></li>
-               </ul>
+               <a href="tampil-rekdis.php" class="serv-btn">Rekam Medis</a>
             </li>
-            <li><a href="#" class="pend-btn">Pendaftaran
-            <span class="fas fa-caret-down third"></span>
-          </a>
-            <ul class="pend-show">
-              <li><a href="tampil-periksa.php">Periksa Pasien</a></li>
-              <li><a href="#">Sudah Diperiksa</a></li>
-            </ul>
+            <li>
+            <a href="tampil-periksa.php" class="pend-btn">Pendaftaran</a>
             </li>
             <li><a href="#" class="lap-btn">Laporan
             <span class="fas fa-caret-down fourth"></span>

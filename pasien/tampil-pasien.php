@@ -23,7 +23,7 @@ location='../auth/login.php'</script>";
 </head>
    <body>
    <div class="container">
-   <h1 align="center"><strong>Daftar Obat</strong></h1>
+   <h1 align="center"><strong>Daftar Pasien</strong></h1>
         <br/>
         <h4>
         <div class="pull-right">

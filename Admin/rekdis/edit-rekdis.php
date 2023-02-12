@@ -117,7 +117,7 @@ $data = mysqli_fetch_array($sql); ?>
 
       &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
       <input type="submit" class="btn btn-primary" name="proses"></input>
-      <a class="btn btn-danger" href="tampil-rekdis-dok.php" role="button">Cancel</a>
+      <a class="btn btn-danger" href="tampil-rekdis.php" role="button">Cancel</a>
     </form>
 
     <?php
@@ -138,7 +138,7 @@ where id_rekam_medis  = '$_GET[kode]'");
       where id_rekam_medis  = '$_GET[kode]'");
 
       echo "Data rekam medis telah diubah";
-      echo "<meta http-equiv=refresh content=1;URL='tampil-rekdis-dok.php'>";
+      echo "<meta http-equiv=refresh content=1;URL='../tampil-rekdis.php'>";
     } ?>
 
   </div>
