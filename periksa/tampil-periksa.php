@@ -23,7 +23,7 @@ location='../auth/login.php'</script>";
 </head>
    <body>
     <div class="container">
-    <h1 align="center"><strong>Pendaftaran Pasien</strong></h1>
+    <h1 align="center"><strong>Pemeriksaan Pasien</strong></h1>
     <br/>
 
     <div class="container">
@@ -39,18 +39,11 @@ location='../auth/login.php'</script>";
                 &ensp;&ensp;  
                 <a href="../admin.php" type="button" class="btn btn-primary"><span class="bi bi-arrow-bar-left"></span>Kembali</a>
         </div>
-        <div class ="pull-right" style="margin-bottom: 20px;">
-            <form class="form-inline" action="" method="post">
-            <div class="form-group">
-                <input type="text" name="pencarian" class="form-control" placeholder="Pencarian">
-        </div>
-        <div class="form-group">
-                <button type="submit" class="button btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        </div>
-            </form>
-        </div>
+        
     </div>
-
+    <br/>
+    <br/>
+    <div class="container">
         <table class="table table table-striped table-hover table table-bordered">
         <thead class="">
         <tr>
@@ -58,6 +51,7 @@ location='../auth/login.php'</script>";
             <th >Nama Departemen</th>
             <th >Nama Pasien</th>
             <th >Tanggal Periksa</th>
+            <th >Status</th>
             <th colspan="2"><i class="glyphicon glyphicon-cog"><i></th>
 
         </tr>
@@ -78,6 +72,7 @@ location='../auth/login.php'</script>";
                 <td>$row[nama_departemen]</td>
                 <td>$row[nama_pasien]</td>
                 <td>$row[tgl_periksa]</td>
+                <td>$row[_status]</td>
                 <td><a href='?kode=$row[id_periksa]' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Hapus</a></td>
                 <td><a href='edit-periksa.php?kode=$row[id_periksa]' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Ubah</a></td>
             <tr>";

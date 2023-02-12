@@ -62,6 +62,15 @@ $data=mysqli_fetch_array($sql);?>
         <input type="date" name="tgl_periksa" size="30" value="<?php echo $data['tgl_periksa']; ?>">
     </div>
   </div>
+  <div class="form-group">
+    <label for="jk_dokter">Status</label>
+    <select name="status" id="status" class="form-control" required>
+        <option value="">--Pilih Salah Satu--</option>
+        <option value="Dalam Antrian">Dalam Antrian</option>
+        <option value="Sedang Dalam Pemeriksaan">Sedang Dalam Pemeriksaan</option>
+        <option value="Selesai">Selesai</option>
+    </select>
+</div>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   <input type="submit" class="btn btn-primary" name="proses"></input>
   <a class="btn btn-danger" href="tampil-periksa.php" role="button">Cancel</a>
@@ -74,7 +83,8 @@ if(isset($_POST['proses'])){
 mysqli_query($connect, "UPDATE pendaftaran SET 
 id_departemen     = '$_POST[id_departemen]', 
 id_pasien         = '$_POST[id_pasien]',
-tgl_periksa     = '$_POST[tgl_periksa]'
+tgl_periksa       = '$_POST[tgl_periksa]',
+status            = '$_POST[status]'
 where id_periksa  = '$_GET[kode]'");
 
 echo "Data Periksa telah diubah";

@@ -64,7 +64,7 @@ $data=mysqli_fetch_array($sql);?>
   </div>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   <input type="submit" class="btn btn-primary" name="proses"></input>
-  <a class="btn btn-danger" href="tampil-janji.php" role="button">Cancel</a>
+  <a class="btn btn-danger" href="tampil-periksa-pend.php" role="button">Cancel</a>
 </form>
 
 <?php

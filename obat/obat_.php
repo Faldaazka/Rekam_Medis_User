@@ -143,12 +143,12 @@
                 </ul>
             </div>
             <?php
-            } else {
+             }else {
                 echo "<div style=\"float:left;\">";
                 $jml = mysqli_num_rows(mysqli_query($connect, $queryJml));
                 echo "Data Hasil Pencaharian : <b>$jml</b>";
                 echo "</div>";
-    } 
+    } }
         ?>   
 </div>   
 </div>
@@ -157,3 +157,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
+}

@@ -49,6 +49,15 @@
     <label for="tgl_periksa">Tanggal Periksa</label>
     <input type="date" name="tgl_periksa" id="tgl_periksa" value="<?=date('Y-m-d')?>" class="tgl_periksa" required>
 </div>
+<div class="form-group">
+    <label for="_status">Status</label>
+    <select name="_status" id="_status" class="form-control" required>
+        <option value="">--Pilih Salah Satu--</option>
+        <option value="Dalam Antrian">Dalam Antrian</option>
+        <option value="Sedang Dalam Pemeriksaan">Sedang Dalam Pemeriksaan</option>
+        <option value="Selesai">Selesai</option>
+    </select>
+</div>
 <input type="submit" class="btn btn-primary" name="add"></input>
 <a href="tampil-periksa.php" type="button" class="btn btn-danger">Kembali</a>
 </form>
