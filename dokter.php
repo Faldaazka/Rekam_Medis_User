@@ -79,7 +79,7 @@ location='../auth/login.php'</script>";
           <li class="dropdown"><a href="#"><span>Rekam Medis</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <li><a class="nav-link scrollto" href="rekdis/tampil-rekdis-dok.php">Data Rekam Medis</a></li>
-            <li><a class="nav-link scrollto" href="">Data Resep Obat</a></li>
+            <li><a class="nav-link scrollto" href="resep/tampil-resep-dok.php">Data Resep Obat</a></li>
             </ul>
           <li><a class="nav-link scrollto" href="obat/tampil-obat-dok.php">Daftar Obat</a></li>
         </ul>

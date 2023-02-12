@@ -76,9 +76,12 @@ location='../auth/login.php'</script>";
           <li><a class="nav-link scrollto" href="pasien/tampil-pasien-pend.php">Pasien</a></li>
           <li class="dropdown"><a href="#"><span>Pendaftaran</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a class="nav-link scrollto" href="periksa/tampil-periksa-pend.php">Periksa</a></li>
+            <li><a class="nav-link scrollto" href="periksa/tampil-periksa-pend.php">Pemeriksaan</a></li>
+            <li><a class="nav-link scrollto" href="resep/tampil-resep-pend.php">Resep Obat</a></li>
             </ul>
-            <li><a class="nav-link scrollto" href="obat/tampil-obat-pend.php">Obat</a></li>
+          <li><a class="nav-link scrollto" href="obat/tampil-obat-pend.php">Daftar Obat</a></li>
+ 
+    
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
