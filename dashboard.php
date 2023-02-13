@@ -46,10 +46,10 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="dashboard.html">KLINIK ALLIA</a></h1>
+      <h1 class="logo me-auto"><a href="index.php">KLINIK ALLIA</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      
+
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
@@ -70,7 +70,7 @@
     <div class="container">
       <h1>KLINIK ALLIA</h1>
       <h2>Klinik Rawat Jalan</h2>
-      <a href="auth/login.php" class="btn btn-primary" role="button">Log In</a> 
+      <a href="auth/login.php" class="btn btn-primary" role="button">Log In</a>
     </div>
   </section><!-- End Hero -->
 
@@ -83,12 +83,12 @@
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
-                </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
+            </div>
           </div>
         </div>
+      </div><!-- End .content-->
+      </div>
+      </div>
 
       </div>
     </section><!-- End Why Us Section -->
@@ -105,7 +105,7 @@
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
             <h3>Klinik Allia</h3>
             <p>Klinik kesehatan yang melayani layanan kesehatan dalam 3 departemen kesehatan yang tersedia. Departemen yang tersedia dalam
-            klinik Allia yaitu depertemen Umum, Gigi dan Laboratorium.</p>
+              klinik Allia yaitu depertemen Umum, Gigi dan Laboratorium.</p>
 
           </div>
         </div>
@@ -223,23 +223,23 @@
                   </div>
                 </div>
               </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
+      </div>
+      </div>
 
       </div>
     </section><!-- End Departemen Section -->
 
     <!-- ======= Doctors Section ======= -->
- <!-- End Doctors Section -->
+    <!-- End Doctors Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
     <!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Testimonials Section ======= -->
-   <!-- End Testimonials Section -->
+    <!-- End Testimonials Section -->
 
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery">
@@ -337,9 +337,9 @@
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.1600291207255!2d106.77017731378693!3d-6.373331164114984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eee381987cdf%3A0x255d85713eeb4a10!2sKlinik%20Allia!5e0!3m2!1sid!2sid!4v1672076583754!5m2!1sid!2sid" frameborder="0" allowfullscreen></iframe>
       </div>
 
-          </div>
+      </div>
 
-        </div>
+      </div>
 
       </div>
     </section><!-- End Contact Section -->
